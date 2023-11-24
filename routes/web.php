@@ -15,32 +15,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function(){
-    return view('shared.home');
-});
-
-
-Route::group(['middleware' => 'checkBuyer'], function () {
+// ONLY FOR BUYER
+Route::middleware(["buyer"])->group(function () {
     Route::get('/orders', function(){
         return view("buyer.orders");
     });
 });
 
-
-Route::group(['middleware' => 'checkSeller'], function () {
+// ONLY FOR SELLER
+Route::middleware(["seller"])->group(function () {
     Route::get('/dashboard', function(){
         return view("seller.dashboard");
     });
 });
 
-
-Route::group(['middleware' => 'guest'], function () {
+// ONLY FOR USERS WHO ARE NOT LOGGED IN
+Route::middleware(["guest"])->group(function () {
     Route::get('/login', [LoginController::class, 'index']);
     Route::post('/login', [LoginController::class, 'login']);
     
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register', [RegisterController::class, 'register']);
+});
+
+// ACCESSIVLE TO EVERYONE
+Route::get('/', function(){
+    return view('shared.home');
 });
 
 Route::post('/logout', [LoginController::class, 'logout']);

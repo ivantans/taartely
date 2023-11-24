@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckBuyer
+class IsBuyer
 {
     /**
      * Handle an incoming request.
@@ -16,10 +15,9 @@ class CheckBuyer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role == 'buyer') {
-            return $next($request);
+        if(!auth()->check() || auth()->user()->is_seller){
+            abort(403);
         }
-
-        return redirect('/');
+        return $next($request);
     }
 }
