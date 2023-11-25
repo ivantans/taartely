@@ -23,7 +23,6 @@ class ProductFactory extends Factory
             "slug" => $this->faker->slug(),
             "excerpt" => $this->faker->sentence(mt_rand(5, 20)),
             "description" => $this->faker->sentence(mt_rand(5, 20)),
-            "photo" => "path",
             "price" => mt_rand(100000, 500000),
         ];
     }

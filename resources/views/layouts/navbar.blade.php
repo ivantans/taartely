@@ -23,7 +23,7 @@
               Welcome back {{ auth()->user()->email }}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window"></i> My Dashboard</a></li>
+              <li><a class="dropdown-item" href="/seller/dashboard"><i class="bi bi-layout-text-window"></i> My Dashboard</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <form action="/logout" method="post">

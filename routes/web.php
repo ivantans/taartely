@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SellerProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,16 +18,17 @@ use Illuminate\Support\Facades\Route;
 
 // ONLY FOR BUYER
 Route::middleware(["buyer"])->group(function () {
-    Route::get('/orders', function(){
-        return view("buyer.orders");
-    });
+    // 
 });
 
 // ONLY FOR SELLER
 Route::middleware(["seller"])->group(function () {
-    Route::get('/dashboard', function(){
+    Route::get('/seller/dashboard', function(){
         return view("seller.dashboard");
     });
+     
+    Route::resource("/seller/dashboard/products", SellerProductController::class);
+    Route::get("/seller/dashboard/products/s/checkSlug", [SellerProductController::class, 'checkSlug'])->middleware('seller');
 });
 
 // ONLY FOR USERS WHO ARE NOT LOGGED IN
