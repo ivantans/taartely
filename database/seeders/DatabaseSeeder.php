@@ -15,13 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
+        
         // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
+            //     'name' => 'Test User',
+            //     'email' => 'test@example.com',
+            // ]);
+            
         User::create([
             "name" => "Taartely",
             "username" => "taartely",
@@ -29,7 +28,8 @@ class DatabaseSeeder extends Seeder
             "is_seller" => 1,
             "password" => bcrypt("password")
         ]);
-
+            
+        User::factory(10)->create();
         Product::factory(20)->create();
 
         Category::create([
