@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -12,7 +13,11 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view()
+        return view("buyer.cart.products", [
+            "carts" => Cart::where("user_id", auth()->user()->id)
+                            ->latest()
+                            ->get()
+        ]);
     }
 
     /**
@@ -28,7 +33,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "amount" => "required|numeric|max:1000"
+        ]);
+
+        $validatedData["user_id"] = auth()->user()->id;
+        $validatedData["product_id"] = $request->product_id;
+        Cart::create($validatedData);
+        return redirect("/products")->with("success", "Added to cart");
     }
 
     /**
@@ -52,7 +64,18 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
-        //
+        if($request->amount != $cart->amount){
+            $validatedData = $request->validate([
+                "amount" => "required|numeric|max:1000"
+            ]);
+        } 
+
+        $validatedData["user_id"] = auth()->user()->id;
+
+        Cart::where("id", $request->cart_id)
+        ->update($validatedData);
+
+        return redirect("/carts")->with("success", "Amount has been updated!");
     }
 
     /**
@@ -60,6 +83,7 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        //
+        Cart::destroy($cart->id);
+        return redirect("/carts")->with("success", "Amount has been deleted!");
     }
 }

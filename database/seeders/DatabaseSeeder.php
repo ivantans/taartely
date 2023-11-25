@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
@@ -28,6 +29,12 @@ class DatabaseSeeder extends Seeder
             "is_seller" => 1,
             "password" => bcrypt("password")
         ]);
+        User::create([
+            "name" => "ivantans",
+            "username" => "ivantans",
+            "email" => "ivantanjaya@gmail.com",
+            "password" => bcrypt("password")
+        ]);
             
         User::factory(10)->create();
         Product::factory(20)->create();
@@ -46,5 +53,7 @@ class DatabaseSeeder extends Seeder
             "name" => "Desert",
             "slug" => "desert"
         ]);
+
+        Cart::factory(100)->create();
     }
 }

@@ -1,6 +1,9 @@
 @extends("layouts.main")
 
 @section('container')
+@if(session()->has("success"))
+    <p>{{ session("success") }}</p>
+@endif
 @foreach ($products as $product)
     
 <div class="card" style="width: 18rem;">

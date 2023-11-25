@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 // ONLY FOR BUYER
 Route::middleware(["buyer"])->group(function () {
-    Route::resource('/cart', CartController::class);
+    Route::resource('/carts', CartController::class);
 });
 
 // ONLY FOR SELLER

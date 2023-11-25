@@ -21,7 +21,7 @@
 
         {{-- Jalan kalau user sebagai pembeli dan sudah login --}}
         <li class="nav-item">
-          <a class="nav-link" href="/cart">My Cart</a>
+          <a class="nav-link" href="/carts">My Cart</a>
         </li>
 
         {{-- Jalan kalau user sebagai penjual --}}
@@ -36,8 +36,11 @@
 
         {{-- Jalan kalau user sudah login --}}
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
-        </li>
+          <form action="/logout" method="post" class="d-inline">
+              @csrf
+              <button type="submit" class="btn btn-link p-0">Logout</button>
+          </form>
+      </li>
 
       </ul>
     </div>
