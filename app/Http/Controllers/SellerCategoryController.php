@@ -13,6 +13,7 @@ class SellerCategoryController extends Controller
      */
     public function index()
     {
+        $this->authorize("seller");
         return view("seller.categories.categories", [
             "categories" => Category::paginate(5)->withQueryString()
         ]);
@@ -23,6 +24,7 @@ class SellerCategoryController extends Controller
      */
     public function create()
     {
+        $this->authorize("seller");
         return view("seller.categories.create");
     }
 
@@ -31,6 +33,7 @@ class SellerCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("seller");
         $validatedData = $request->validate([
             "name" => "required|max:50|unique:categories",
             "slug" => "required|unique:categories"
@@ -54,6 +57,7 @@ class SellerCategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        $this->authorize("seller");
         return view("seller.categories.edit", [
             "category" => $category
         ]);
@@ -64,6 +68,7 @@ class SellerCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $this->authorize("seller");
         if($request->name != $category->name){
             $rules["name"] = "required|max:50|unique:categories";
             $rules["slug"] = "required|unique:categories";
@@ -84,6 +89,7 @@ class SellerCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        $this->authorize("seller");
         Category::destroy($category->id);
         return redirect('/seller/dashboard/categories')->with('success', 'Post has been deleted!');
     }

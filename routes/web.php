@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SellerCategoryController;
 use App\Http\Controllers\SellerProductController;
@@ -19,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 // ONLY FOR BUYER
 Route::middleware(["buyer"])->group(function () {
-    // 
+    Route::resource('/carts', CartController::class);
 });
 
 // ONLY FOR SELLER
@@ -43,9 +45,14 @@ Route::middleware(["guest"])->group(function () {
     Route::post('/register', [RegisterController::class, 'register']);
 });
 
-// ACCESSIVLE TO EVERYONE
+// ACCESSIBLE TO EVERYONE
 Route::get('/', function(){
     return view('shared.home');
 });
+Route::get('/home', function(){
+    return view('shared.home');
+});
 
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('products/{product}', [ProductController::class, 'show']);
 Route::post('/logout', [LoginController::class, 'logout']);

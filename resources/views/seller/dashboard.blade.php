@@ -5,4 +5,10 @@
     <li><a href="/seller/dashboard">Dashboard</a></li>
     <li><a href="/seller/dashboard/products">Products (Ke halaman CRUD Product)</a></li>
     <li><a href="/seller/dashboard/categories">Categories (Ke halaman CRUD Category)</a></li>
+    <li>
+        <form action="/logout" method="post" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-link p-0">Logout</button>
+        </form>
+    </li>
 @endsection
