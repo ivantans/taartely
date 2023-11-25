@@ -17,7 +17,7 @@ class SellerProductController extends Controller
     {
         $this->authorize("seller");
 
-        return view("seller.products", [
+        return view("seller.products.products", [
             "products" => Product::where("user_id", auth()->user()->id)->paginate(5)->withQueryString()
         ]);
     }
@@ -29,7 +29,7 @@ class SellerProductController extends Controller
     {
         $this->authorize("seller");
 
-        return view("seller.create", [
+        return view("seller.products.create", [
             "categories" => Category::all()
         ]);
     }
@@ -63,7 +63,7 @@ class SellerProductController extends Controller
     {
         $this->authorize("seller");
 
-        return view("seller.show", [
+        return view("seller.products.show", [
             "product" => $product,
         ]);
     }
@@ -73,7 +73,9 @@ class SellerProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view("seller.edit", [
+        $this->authorize("seller");
+
+        return view("seller.products.edit", [
             "product" => $product,
             "categories" => Category::all(),
         ]);
@@ -84,6 +86,8 @@ class SellerProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $this->authorize("seller");
+
         $rules = [
             "name" => "required|max:255",
             "price" => "required|numeric",
@@ -118,6 +122,8 @@ class SellerProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $this->authorize("seller");
+
         if($product->image){
             Storage::delete($product->image);
         }
@@ -128,6 +134,7 @@ class SellerProductController extends Controller
     }
 
     public function checkSlug(Request $request){
+        $this->authorize("seller");
         $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
         return response()->json(['slug'=>$slug]);
     }

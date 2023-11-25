@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SellerCategoryController;
 use App\Http\Controllers\SellerProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,10 +29,12 @@ Route::middleware(["seller"])->group(function () {
     });
      
     Route::resource("/seller/dashboard/products", SellerProductController::class);
+    Route::resource("/seller/dashboard/categories", SellerCategoryController::class)->except("show");
     Route::get("/seller/dashboard/products/s/checkSlug", [SellerProductController::class, 'checkSlug'])->middleware('seller');
+    Route::get("/seller/dashboard/categories/s/checkSlug", [SellerProductController::class, 'checkSlug'])->middleware('seller');
 });
 
-// ONLY FOR USERS WHO ARE NOT LOGGED IN
+// ONLY FOR USERS WHO ARE NOT LOGGED IN 
 Route::middleware(["guest"])->group(function () {
     Route::get('/login', [LoginController::class, 'index']);
     Route::post('/login', [LoginController::class, 'login']);

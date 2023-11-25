@@ -40,7 +40,7 @@
               <form action="/seller/dashboard/products/{{ $product->slug }}" method="post" class="d-inline">
                 @csrf
                 @method("delete")
-                <button type="submit" class="btn-link btn p-0 m-0" onclick="confirm('are you sure?')">Delete</button>
+                <button type="submit" class="btn-link btn p-0 m-0" onclick="return confirm('are you sure?')">Delete</button>
               </form>  
             </td>  
           </tr>
