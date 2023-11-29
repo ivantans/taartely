@@ -11,6 +11,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ $product->name }}</h5>
         <p class="card-text">{{ $product->excerpt }}</p>
+        <p class="card-text">Harga: Rp{{ $product->price }}</p>
         <a href="/products/{{ $product->slug }}" class="btn btn-primary">See More...</a>
     </div>
 </div>

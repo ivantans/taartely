@@ -6,6 +6,7 @@
         <p>Barang: {{ $cart->product->name }}</p>
         <p>Pembeli: {{ $cart->user->name }}</p>
         <p>Amout: {{ $cart->amount }}</p>
+        <p>Total: {{ $cart->amount*$cart->product->price }}</p>
         <p>{{ $cart->product->slug }}</p>
         <form action="/carts/{{ $cart->id }}" method="post" class="d-inline">
             @csrf

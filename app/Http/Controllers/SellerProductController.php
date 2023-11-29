@@ -18,7 +18,7 @@ class SellerProductController extends Controller
         $this->authorize("seller");
 
         return view("seller.products.products", [
-            "products" => Product::where("user_id", auth()->user()->id)->paginate(5)->withQueryString()
+            "products" => Product::with(["user", "category"])->where("user_id", auth()->user()->id)->paginate(5)->withQueryString()
         ]);
     }
 

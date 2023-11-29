@@ -13,8 +13,9 @@ class CartController extends Controller
      */
     public function index()
     {
+        $this->authorize("buyer");
         return view("buyer.cart.products", [
-            "carts" => Cart::where("user_id", auth()->user()->id)
+            "carts" => Cart::with(['user', 'product'])->where("user_id", auth()->user()->id)
                             ->latest()
                             ->get()
         ]);
@@ -33,6 +34,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("buyer");
         $validatedData = $request->validate([
             "amount" => "required|numeric|max:1000"
         ]);
@@ -64,6 +66,7 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
+        $this->authorize("buyer");
         if($request->amount != $cart->amount){
             $validatedData = $request->validate([
                 "amount" => "required|numeric|max:1000"
@@ -83,6 +86,7 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
+        $this->authorize("buyer");
         Cart::destroy($cart->id);
         return redirect("/carts")->with("success", "Amount has been deleted!");
     }

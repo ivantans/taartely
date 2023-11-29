@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container container-fluid">
 
-    <a class="navbar-brand" href="">Taartely</a>
+    <a class="navbar-brand" href="/home">Taartely</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link" href="">Home</a>
+          <a class="nav-link" href="/home">Home</a>
         </li>
 
         <li class="nav-item">
@@ -30,17 +30,22 @@
         </li>
 
         {{-- Jalan kalau user belum login --}}
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-
-        {{-- Jalan kalau user sudah login --}}
+        @auth
         <li class="nav-item">
           <form action="/logout" method="post" class="d-inline">
               @csrf
               <button type="submit" class="btn btn-link p-0">Logout</button>
           </form>
       </li>
+        @else
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        @endauth
+
+                                                                                                                                                
+        {{-- Jalan kalau user sudah login --}}
+        
 
       </ul>
     </div>

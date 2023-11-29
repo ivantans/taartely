@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 // ONLY FOR BUYER
 Route::middleware(["buyer"])->group(function () {
-    Route::resource('/carts', CartController::class);
+    Route::resource('/carts', CartController::class)->except(["create", "show", "edit"]);
 });
 
 // ONLY FOR SELLER
@@ -32,8 +32,8 @@ Route::middleware(["seller"])->group(function () {
      
     Route::resource("/seller/dashboard/products", SellerProductController::class);
     Route::resource("/seller/dashboard/categories", SellerCategoryController::class)->except("show");
-    Route::get("/seller/dashboard/products/s/checkSlug", [SellerProductController::class, 'checkSlug'])->middleware('seller');
-    Route::get("/seller/dashboard/categories/s/checkSlug", [SellerProductController::class, 'checkSlug'])->middleware('seller');
+    Route::get("/seller/dashboard/products/s/checkSlug", [SellerProductController::class, 'checkSlug']);
+    Route::get("/seller/dashboard/categories/s/checkSlug", [SellerProductController::class, 'checkSlug']);
 });
 
 // ONLY FOR USERS WHO ARE NOT LOGGED IN 
