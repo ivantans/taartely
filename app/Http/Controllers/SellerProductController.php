@@ -53,7 +53,7 @@ class SellerProductController extends Controller
         $validatedData["image"] = $request->file("image")->store("product-images");
 
         Product::create($validatedData);
-        return redirect('/seller/dashboard/products')->with('success', 'New post has been added!');
+        return redirect('/seller/dashboard/products')->with('success', 'New Product has been added!');
     }
 
     /**
@@ -113,7 +113,7 @@ class SellerProductController extends Controller
         Product::where('id', $product->id)
             ->update($validatedData);
 
-            return redirect('/seller/dashboard/products')->with('success', 'New post has been updated!');
+            return redirect('/seller/dashboard/products')->with('success', 'New products has been updated!');
         
     }
 
@@ -130,7 +130,7 @@ class SellerProductController extends Controller
 
         Product::destroy($product->id);
 
-        return redirect('/seller/dashboard/products')->with('success', 'Post has been deleted!');
+        return redirect('/seller/dashboard/products')->with('success', 'Product has been deleted!');
     }
 
     public function checkSlug(Request $request){

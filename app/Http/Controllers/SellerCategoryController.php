@@ -91,7 +91,7 @@ class SellerCategoryController extends Controller
     {
         $this->authorize("seller");
         Category::destroy($category->id);
-        return redirect('/seller/dashboard/categories')->with('success', 'Post has been deleted!');
+        return redirect('/seller/dashboard/categories')->with('success', 'Category has been deleted!');
     }
 
     public function checkSlug(Request $request){

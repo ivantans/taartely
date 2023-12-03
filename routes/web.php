@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SellerCategoryController;
@@ -21,7 +23,19 @@ use Illuminate\Support\Facades\Route;
 
 // ONLY FOR BUYER
 Route::middleware(["buyer"])->group(function () {
-    Route::resource('/carts', CartController::class)->except(["create", "show", "edit"]);
+    Route::resource('/carts', CartController::class)
+    ->except(["create", "show", "edit"])
+    ->names([
+        "index" => "carts.index",
+        "store" => "carts.store",
+        "update" => "carts.update",
+        "destroy" => "carts.destroy",
+    ]);
+
+    Route::post('/checkout', [CheckOutController::class, 'store']);
+    Route::get('/orders', [OrderController::class, 'index']);
+
+
 });
 
 // ONLY FOR SELLER
