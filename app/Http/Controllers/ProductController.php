@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index(){
         return view("shared.products", [
-            "products" => Product::paginate(5)->withQueryString()
+            "products" => Product::paginate(9)->withQueryString()
         ]);
     }
 

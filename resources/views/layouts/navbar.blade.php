@@ -20,15 +20,20 @@
         </li>
 
         {{-- Jalan kalau user sebagai pembeli dan sudah login --}}
+        @can("buyer")
         <li class="nav-item">
           <a class="nav-link" href="/carts">My Cart</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="/orders">My Order</a>
+        </li>
+        @endcan
+        @can("seller")
         {{-- Jalan kalau user sebagai penjual --}}
         <li class="nav-item">
           <a class="nav-link" href="/seller/dashboard">Dashboard</a>
         </li>
-
+        @endcan
         {{-- Jalan kalau user belum login --}}
         @auth
         <li class="nav-item">

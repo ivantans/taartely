@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             "name" => "Taartely",
             "username" => "taartely",
             "email" => "taartely@gmail.com",
+            "address" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, corrupti adipisci eligendi totam sit repellendus libero cupiditate expedita eum necessitatibus?",
             "is_seller" => 1,
             "password" => bcrypt("password")
         ]);
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             "name" => "ivantans",
             "username" => "ivantans",
             "email" => "ivantanjaya@gmail.com",
+            "address" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, corrupti adipisci eligendi totam sit repellendus libero cupiditate expedita eum necessitatibus?",
             "password" => bcrypt("password")
         ]);
             

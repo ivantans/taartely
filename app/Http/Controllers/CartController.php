@@ -17,7 +17,9 @@ class CartController extends Controller
         return view("buyer.cart.products", [
             "carts" => Cart::with(['user', 'product'])->where("user_id", auth()->user()->id)
                             ->latest()
-                            ->get()
+                            ->get(),
+            "total_product" => Cart::where("user_id", auth()->user()->id)->count(),
+            
         ]);
     }
 
@@ -36,7 +38,7 @@ class CartController extends Controller
     {
         $this->authorize("buyer");
         $validatedData = $request->validate([
-            "amount" => "required|numeric|max:1000"
+            "amount" => "required|numeric|min:1|max:1000"
         ]);
 
         $validatedData["user_id"] = auth()->user()->id;
@@ -67,9 +69,10 @@ class CartController extends Controller
     public function update(Request $request, Cart $cart)
     {
         $this->authorize("buyer");
+
         if($request->amount != $cart->amount){
             $validatedData = $request->validate([
-                "amount" => "required|numeric|max:1000"
+                "amount" => "required|numeric|min:1|max:1000"
             ]);
         } 
 
