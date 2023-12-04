@@ -31,25 +31,20 @@ Route::middleware(["buyer"])->group(function () {
         "update" => "carts.update",
         "destroy" => "carts.destroy",
     ]);
-
     Route::post('/checkout', [CheckOutController::class, 'store']);
     Route::get('/orders', [OrderController::class, 'index']);
-
-
 });
 
 // ONLY FOR SELLER
 Route::middleware(["seller"])->group(function () {
     Route::get('/seller/dashboard', function(){
         return view("seller.dashboard");
-    });
-     
+    }); 
     Route::resource("/seller/dashboard/products", SellerProductController::class);
     Route::resource("/seller/dashboard/categories", SellerCategoryController::class)->except("show");
     Route::get("/seller/dashboard/products/s/checkSlug", [SellerProductController::class, 'checkSlug']);
     Route::get("/seller/dashboard/categories/s/checkSlug", [SellerProductController::class, 'checkSlug']);
 });
-
 // ONLY FOR USERS WHO ARE NOT LOGGED IN 
 Route::middleware(["guest"])->group(function () {
     Route::get('/login', [LoginController::class, 'index']);
@@ -68,5 +63,5 @@ Route::get('/home', function(){
 });
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('products/{product}', [ProductController::class, 'show']);
+Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::post('/logout', [LoginController::class, 'logout']);
