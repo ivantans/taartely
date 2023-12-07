@@ -1,4 +1,4 @@
-@extends("seller.layouts.main")
+@extends("layouts.main")
 
 @section('container')
 <a href="/seller/dashboard">Back to Dashboard</a>
@@ -77,7 +77,7 @@
 
 
 {{-- DON'T TOUCH --}}
-  <script>
+  {{-- <script>
     // Slug
     const name = document.querySelector('#name');
     const slug = document.querySelector('#slug');
@@ -108,5 +108,5 @@
         e.preventDefault();
     })
 }
-  </script>
+  </script> --}}
 @endsection

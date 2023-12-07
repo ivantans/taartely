@@ -46,7 +46,7 @@ class SellerProductController extends Controller
             "price" => "required|numeric",
             "category_id" => "required",
             "excerpt" => "required",
-            "description" => "required|max:255",
+            "description" => "required|max:5000",
             "image" => "required|image|file|max:1024"
         ]);
         $validatedData["user_id"] = auth()->user()->id;
@@ -93,7 +93,7 @@ class SellerProductController extends Controller
             "price" => "required|numeric",
             "category_id" => "required",
             "excerpt" => "required",
-            "description" => "required|max:255",
+            "description" => "required|max:5000",
         ];
 
         if($request->slug != $product->slug){

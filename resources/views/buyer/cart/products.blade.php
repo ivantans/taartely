@@ -1,7 +1,8 @@
 @extends("layouts.main")
 
 @section("container")
-<h1>My Cart</h1>
+<div class="container-mx-7-rem py-3">
+    <h1 class="taartely-color-2 mb-3 fw-bold">Keranjang Saya</h1>
 
 <div class="card w-100 mb-3">
     <div class="card-body">
@@ -11,6 +12,7 @@
         <p class="card-text">{{ auth()->user()->address }}</p>
     </div>
 </div>
+
 <?php
 $total_price = 0;
 ?>
@@ -38,10 +40,11 @@ $total_price += $cart->amount * $cart->product->price;
                 <form action="{{ route('carts.update', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                     @csrf
                     @method("put")
-                    <div class="mb-3">
+                    <div class="mb-3 input-group">
                         <input type="hidden" name="cart_id" value="{{ $cart->id }}">
-                        <input type="number" class="form-control @error(" amount") is-invalid @enderror" id="amount"
-                            name="amount" value="{{ old("amount") < 1 ? $cart->amount:old($cart->amount) }}">
+                        <button type="button" class="btn rounded-start btn-md taartely-border" onclick="decrementValue()"><i class="bi bi-dash"></i></button>
+                        <input type="number" class="form-control @error("amount") is-invalid @enderror" id="amount" name="amount" value="{{ old("amount") < 1 ? $cart->amount:old($cart->amount) }}">
+                        <button type="button" class="btn btn-md taartely-border" onclick="incrementValue()"><i class="bi bi-plus"></i></button>
                         @error("amount")
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -90,26 +93,5 @@ $total_price += $cart->amount * $cart->product->price;
         </form>
     </div>
 </div>
-
-<script>
-    function previewImage() {
-    const image = document.querySelector("#image");
-    const imgPreview = document.querySelector(".img-preview");
-
-    imgPreview.style.display = 'block';
-
-    const oFReader = new FileReader();
-    
-    oFReader.readAsDataURL(image.files[0]);
-
-    oFReader.onload = function(oFREvent) {
-        imgPreview.src = oFREvent.target.result;
-    }
-
-    // Disable trix file Attach
-    document.addEventListener('trix-file-accept', function(e){
-        e.preventDefault();
-    })
-}
-</script>
+</div>
 @endsection

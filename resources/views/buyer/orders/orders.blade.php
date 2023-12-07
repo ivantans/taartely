@@ -1,7 +1,8 @@
 @extends("layouts.main")
 
 @section("container")
-<h1>My Orders</h1>
+<div class="container-mx-7-rem py-4">
+    <h1 class="taartely-color-2 fw-bold">Pesanan Saya</h1>
 <div class="card">
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
@@ -38,7 +39,7 @@
                             </th>
                             <td>{{ $orderDetail->product->name }}</td>
                             <td>{{ $orderDetail->quantity }}x</td>
-                            <td>Rp. {{ number_format($orderDetail->product->price) }}</td>
+                            <td>Rp {{ number_format($orderDetail->product->price,0,".",".") }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -51,5 +52,5 @@
         @endforeach
     </div>
 </div>
-
+</div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('seller.layouts.main')
+@extends('layouts.main')
 
 @section('container')
 <li><a href="/seller/dashboard/categories">Back to All Categories</a></li>

@@ -17,7 +17,7 @@
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="col-md-5 border rounded-3 border-1 bg-body">
-        <h1 class="text-center mt-5 mb-4">Login</h1>
+        <h1 class="p-55 text-center mb-3 taartely-color-2 pt-5 pb-4 fw-bold">Login</h1>
         <div class="row justify-content-center pt-3">
             <div class="col-md-10">
                 <form action="/login" method="post">
@@ -32,7 +32,7 @@
                         @enderror
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="password" name="password" id="password" class="form-control @error("password") is-invalid @enderror" value="{{ old("password") }}" placeholder="Password">
+                        <input type="password" name="password" id="password" class="form-control @error("password") is-invalid @enderror" placeholder="Password">
                         <label for="password">Password</label>
                         @error("password")
                         <div class="invalid-feedback">
@@ -41,7 +41,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <button class="w-100 mt-3 btn-lg btn btn-primary" name="submit" type="submit">Submit</button>
+                        <button class="w-100 mt-3 btn-lg btn taartely-button" name="submit" type="submit">Submit</button>
                     </div>
                 </form>
                 <p class="text-center pb-2">Don't have an account? <a href="/register" class="text-decoration-none">Register</a></p>

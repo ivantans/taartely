@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId("user_id");
             $table->string("slug")->unique();
             $table->string("excerpt");
-            $table->string("description");
+            $table->text("description");
             $table->string("image")->nullable();
             $table->bigInteger("price");
             $table->timestamps();

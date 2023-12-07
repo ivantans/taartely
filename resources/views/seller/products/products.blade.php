@@ -1,4 +1,4 @@
-@extends('seller.layouts.main')
+@extends('layouts.main')
 
 @section('container')
 <h1>Table Of Content</h1>

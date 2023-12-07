@@ -1,13 +1,118 @@
 @extends("layouts.main")
 
 @section('container')
-<div class="container">
-<h1>Selamat datang website kami</h1>
-<h1>Gallery gambar</h1>
-<h1>Visi Misi Tujuan Taartely</h1>
-<h1>Tentang kami</h1>
-<h1>Alamat kami</h1>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.06264476014394!2d110.35298920525514!3d-7.789577738062974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5818ed6301bf%3A0x8f0377f72b38f5ed!2sJl.%20Indraprasta%20No.9b!5e0!3m2!1sid!2sid!4v1700932580802!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-@endsection
 
+<section class="bg-jumbotron">
+    <div class="row justify-content-between container-mx-7-rem py-5">
+        <div class="d-flex align-items-center col-lg-5">
+            <div>
+                <h1 class="taartely-title">Selamat Datang di Toko Kami!!!</h1>
+                <p class="taartely-paragraph">Mau Beli Kue Apa Hari ini?</p>
+                <button class="btn mt-4 taartely-button mb-3 taartely-shadow rounded">Shop Now!</button>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <img src="{{ asset("/storage/taartely-assets/kuee.png") }}" alt="" class="img-fluid" style="width:400px;"">
+        </div>
+    </div>
+</section>
+
+{{-- TODO: REFACTOR CODE: AMBIL DATA DARI CONTROLLER --}}   
+<section class="container-mx-7-rem py-5">
+    <h1 class="text-center mb-3 taartely-color-2 fw-bold">Kue terlaris</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 mb-4 text-center">
+        <a class="text-decoration-none d-flex" href="">
+            <div class="col">
+                <div class="card h-100 taartely-shadow py-4">
+                    <img src="{{ asset("/storage/taartely-assets/kue1.png") }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Product 1</h5>
+                        <p class="taartely-paragraph card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, itaque. Lorem.</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class="text-decoration-none d-flex" href="">
+            <div class="col">
+                <div class="card h-100 taartely-shadow py-4">
+                    <img src="{{ asset("/storage/taartely-assets/kue2.png") }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Product 2</h5>
+                        <p class="taartely-paragraph card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, cupiditate.</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class="text-decoration-none d-flex" href="">
+            <div class="col">
+                <div class="card h-100 taartely-shadow py-4">
+                    <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Product 3</h5>
+                        <p class="taartely-paragraph card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+
+{{-- * Section Visi misi taartely --}}
+<section class="bg-section text-center py-5">
+    <div class="container-mx-7-rem">
+        <div class="d-flex flex-column mb-3">
+            <div class="d-flex justify-content-center pb-5">
+                <div class="col-md-4">
+                    <img src="{{ asset("/storage/taartely-assets/logotaartely.png") }}" alt="taartelylogo" class="img-fluid">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center pb-3">
+                <div class="col-md-6">
+                    <p class="taartely-paragraph">Menjadi toko kue yang mampu berbagi kebahagiaan bersama pelanggan dengan menyediakan produk kue dan roti yang sesuai dengan kebutuhan konsumen</p>
+                </div>
+            </div>
+          </div>
+    </div>
+{{-- * End section visi misi taartely --}}
+</section>
+
+
+
+<div class="row d-flex justify-content-between container-mx-7-rem py-5">
+    <div class="col-md-6 d-flex align-items-center">
+        <div>
+            <h1 class="taartely-color-2 fw-bold">Tentang kami</h1>
+            <p class="taartely-paragraph align">Eveniet, modi ratione qui eos, provident aperiam incidunt itaque pariatur quam unde facere, ipsa distinctio expedita at. Molestiae magnam reprehenderit voluptates qui sunt, consectetur ut ipsum cumque pariatur incidunt est quibusdam temporibus delectus placeat officia dolore cum laborum odio ipsa animi in! Recusandae laboriosam voluptates magni molestias laudantium cumque doloribus eligendi maxime, animi perferendis, blanditiis architecto sapiente obcaecati ex vero necessitatibus amet optio possimus sit, aspernatur placeat quam est! Aliquam deleniti voluptatum ullam, cum accusantium, sapiente at ad neque nesciunt perferendis aut dolore temporibus quaerat.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="d-flex justify-content-end">
+        <img src="{{ asset("/storage/taartely-assets/kue5.png") }}" alt="" class="img-fluid" style="width: 400px">
+    </div>
+    </div>
+</div>
+
+
+<section class="bg-section">
+    <div class="row justify-content-between  container-mx-7-rem py-5">
+        <div class="col-lg-5">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.06264476014394!2d110.35298920525514!3d-7.789577738062974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5818ed6301bf%3A0x8f0377f72b38f5ed!2sJl.%20Indraprasta%20No.9b!5e0!3m2!1sid!2sid!4v1700932580802!5m2!1sid!2sid"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+        </div>
+        <div class="col-lg-5 text-center d-flex align-items-center mt-3">
+            <div>
+                <h1 class="taartely-color-1 fw-bold"><i></i> Lokasi kami</h1>
+                <img src="{{ asset("/storage/taartely-assets/lokasi.png") }}" alt="" class="img-fluid" style="width:300px;"">
+                <p>Jl. Indraprasta No.9b, Tegalrejo, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55244</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+@endsection

@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.taartely-title{
+    color: #9E1545;
+    text-shadow: 2px 2px 4px #585767;
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.p-18{
+    font-size: 18px;
+}
+
+.p-16{
+    font-size: 16px;
+}
+.p-20{
+    font-size: 20px;
+}
+.p-22{
+    font-size: 22px;
+}
+.p-40{
+    font-size: 40px;
+}
+.p-55   {
+    font-size: 55px;
+}
+.taartely-paragraph{
+    font-size: 16px;
+    color: #585767;
+}
+.taartely-white{
+    color: #fffafb;
+}
+.taartely-color-1{
+    color: #9E1545;
+}
+
+.taartely-color-2{
+    color: #585767;
+}
+
+.taartely-color-3{
+    color: #484647;
+}
+
+.container-mx-12-rem{
+    margin-left: 12rem;
+    margin-right: 12rem;    
+}
+
+.bg-jumbotron{
+    background-color: #fae0e3;
+}
+
+.bg-section{
+    background-color: #fef6f7;
+}
+
+.taartely-border-top{
+    border-top: 1px solid #700a2e;
+}
+.taartely-border{
+    border: 1px solid #700a2e;
+}
+
+.container-mx-7-rem{
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+.taartely-shadow{
+    border-radius: 5px;
+}
+
+.taartely-button{
+    background-color: #9E1545;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}   
+
+
+.navbar-background{
+        background-color: rgb(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+}
+
+.bg-footer{
+    background-color: #9E1545;
+}
+
+footer p {
+    margin-bottom: 4px;
+}
+
+.align{
+    text-align: justify;
+}
+
+/* ! DO NOT TOUCH, EDIT, OR DELETE */
+trix-toolbar [data-trix-button-group='file-tools']{
+    display: none;
+}

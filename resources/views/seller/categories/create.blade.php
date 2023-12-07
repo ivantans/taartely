@@ -1,4 +1,4 @@
-@extends("seller.layouts.main")
+@extends("layouts.main")
 
 @section('container')
 <a href="/seller/dashboard">Back to Dashboard</a>
@@ -26,19 +26,4 @@
     <button type="submit" class="btn btn-primary">Create New Categories</button>
   </form>
 
-
-
-{{-- DON'T TOUCH --}}
-  <script>
-    // Slug
-    const name = document.querySelector('#name');
-    const slug = document.querySelector('#slug');
-
-    name.addEventListener('change', function(){
-        fetch('/seller/dashboard/categories/s/checkSlug?name=' + name.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-    })
-
-  </script>
 @endsection
