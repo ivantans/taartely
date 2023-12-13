@@ -38,7 +38,9 @@ Route::middleware(["buyer"])->group(function () {
 // ONLY FOR SELLER
 Route::middleware(["seller"])->group(function () {
     Route::get('/seller/dashboard', function(){
-        return view("seller.dashboard");
+        return view("seller.dashboard", [
+            "title" => "Dashboard",
+        ]);
     }); 
     Route::resource("/seller/dashboard/products", SellerProductController::class);
     Route::resource("/seller/dashboard/categories", SellerCategoryController::class)->except("show");
@@ -56,10 +58,14 @@ Route::middleware(["guest"])->group(function () {
 
 // ACCESSIBLE TO EVERYONE
 Route::get('/', function(){
-    return view('shared.home');
+    return view('shared.home', [
+        "title" => "Home"
+    ]);
 });
 Route::get('/home', function(){
-    return view('shared.home');
+    return view('shared.home', [
+        "title" => "Home"
+    ]);
 });
 
 Route::get('/products', [ProductController::class, 'index']);

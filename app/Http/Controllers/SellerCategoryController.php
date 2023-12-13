@@ -15,6 +15,7 @@ class SellerCategoryController extends Controller
     {
         $this->authorize("seller");
         return view("seller.categories.categories", [
+            "title" => "Categories",
             "categories" => Category::paginate(5)->withQueryString()
         ]);
     }
@@ -25,7 +26,9 @@ class SellerCategoryController extends Controller
     public function create()
     {
         $this->authorize("seller");
-        return view("seller.categories.create");
+        return view("seller.categories.create", [
+            "title" => "Create New Category"
+        ]);
     }
 
     /**
@@ -59,6 +62,7 @@ class SellerCategoryController extends Controller
     {
         $this->authorize("seller");
         return view("seller.categories.edit", [
+            "title" => $category->name,
             "category" => $category
         ]);
     }

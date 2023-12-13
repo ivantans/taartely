@@ -23,6 +23,7 @@ class OrderController extends Controller
         $orders = $ordersQuery->get();
     
         return view("buyer.orders.orders", [
+            "title" => "My Order",
             "orders" => $orders
         ]);
     }

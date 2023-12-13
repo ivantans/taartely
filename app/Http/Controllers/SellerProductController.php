@@ -18,6 +18,7 @@ class SellerProductController extends Controller
         $this->authorize("seller");
 
         return view("seller.products.products", [
+            "title" => "Product",
             "products" => Product::with(["user", "category"])->where("user_id", auth()->user()->id)->paginate(5)->withQueryString()
         ]);
     }
@@ -30,6 +31,7 @@ class SellerProductController extends Controller
         $this->authorize("seller");
 
         return view("seller.products.create", [
+            "title" => "Create New Product",
             "categories" => Category::all()
         ]);
     }
@@ -64,6 +66,7 @@ class SellerProductController extends Controller
         $this->authorize("seller");
 
         return view("seller.products.show", [
+            "title" => $product->name,
             "product" => $product,
         ]);
     }
@@ -76,6 +79,7 @@ class SellerProductController extends Controller
         $this->authorize("seller");
 
         return view("seller.products.edit", [
+            "title" => "Edit Product",
             "product" => $product,
             "categories" => Category::all(),
         ]);

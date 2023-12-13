@@ -15,6 +15,7 @@ class CartController extends Controller
     {
         $this->authorize("buyer");
         return view("buyer.cart.products", [
+            "title" => "My Cart",
             "carts" => Cart::with(['user', 'product'])->where("user_id", auth()->user()->id)
                             ->latest()
                             ->get(),
