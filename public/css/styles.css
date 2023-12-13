@@ -13,11 +13,11 @@
 }
 
 .p-18{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .p-16{
-    font-size: 16px;
+    font-size: 14px;
 }
 .p-20{
     font-size: 20px;
@@ -32,8 +32,13 @@
     font-size: 55px;
 }
 .taartely-paragraph{
-    font-size: 16px;
+    font-size: 14px;
     color: #585767;
+}
+
+.taartely-paragraph16{
+    font-size: 16px;
+    color: #373639;
 }
 .taartely-white{
     color: #fffafb;
@@ -43,7 +48,7 @@
 }
 
 .taartely-color-2{
-    color: #585767;
+    color: #47464a;
 }
 
 .taartely-color-3{
@@ -80,8 +85,9 @@
 
 .taartely-button{
     background-color: #9E1545;
+    font-size: 14px;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 6px 12px;
     border: none;
     cursor: pointer;
 }   

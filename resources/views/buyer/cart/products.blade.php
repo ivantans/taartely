@@ -6,10 +6,10 @@
 
 <div class="card w-100 mb-3">
     <div class="card-body">
-        <h5 class="card-title">Kirim ke alamat:</h5>
-        <p class="card-title">{{ auth()->user()->name }}</p>
+        <h5 class="fw-bold p-18 taartely-paragraph16 mt-2">Kirim ke alamat:</h5>
+        <p class="taartely-paragraph">{{ auth()->user()->name }}</p>
 
-        <p class="card-text">{{ auth()->user()->address }}</p>
+        <p class="taartely-paragraph">{{ auth()->user()->address }}</p>
     </div>
 </div>
 
@@ -27,10 +27,10 @@ $total_price += $cart->amount * $cart->product->price;
         </div>
         <div class="col-md-7">
             <div class="card-body py-2">
-                <h6 class="card-title">{{ $cart->product->name }}</h6>
-                <p style="font-size:14px;" class="card-text text mb-1">{{ $cart->product->excerpt }}</p>
-                <p style="font-size:14px;" class="card-text text mb-1">Total: {{ $cart->amount }}</p>
-                <p style="font-size:14px;" class="card-text text mb-1">Harga:
+                <h6 class="fw-bold p-18 taartely-paragraph16 mt-2">{{ $cart->product->name }}</h6>
+                <p style="font-size:14px;" class="taartely-paragraph text mb-1">{{ $cart->product->excerpt }}</p>
+                <p style="font-size:14px;" class="taartely-paragraph text mb-1">Total: {{ $cart->amount }}</p>
+                <p style="font-size:14px;" class="taartely-paragraph text mb-1">Harga:
                     {{ $cart->amount * $cart->product->price }}</p>
 
             </div>
@@ -51,7 +51,7 @@ $total_price += $cart->amount * $cart->product->price;
                         </div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary" style="font-size:14px">Edit cart</button>
+                    <button type="submit" class="btn taartely-button" style="font-size:14px">Edit cart</button>
                 </form>
                 <form action="{{ route('carts.destroy', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                     @csrf
@@ -66,13 +66,13 @@ $total_price += $cart->amount * $cart->product->price;
 @endforeach
 <div class="card w-100 mb-3">
     <div class="card-body">
-        <h5 class="card-title">Rincian belanja:</h5>
-            <p class="card-title">Total belanjang ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
+        <h5 class="fw-bold p-18 taartely-paragraph16 mt-2">Rincian belanja:</h5>
+            <p class="taartely-paragraph">Total belanjang ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
     </div>
 </div>
 <div class="card w-100 mb-3">
     <div class="card-body">
-        <h5 class="card-title">Pembayaran:</h5>
+        <h5 class="fw-bold p-18 taartely-paragraph16 mt-2">Pembayaran:</h5>
         <img class="img-fluid my-4 border" src="{{ asset("storage\qris-images\qris.jpg") }}" alt="" style="width: 400px;height: 500px">
         <form action="/checkout" method="post" enctype="multipart/form-data">
             @csrf
@@ -87,9 +87,9 @@ $total_price += $cart->amount * $cart->product->price;
                 </div>
                 @enderror
             </div>
-            <p class="card-title">Total belanja ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
+            <p class="fw-bold p-18 taartely-paragraph16 mt-2">Total belanja ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
         
-        <button class="btn btn-primary">Check Out</button>
+        <button class="btn taartely-button">Check Out</button>
         </form>
     </div>
 </div>

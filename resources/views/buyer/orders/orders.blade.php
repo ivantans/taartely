@@ -7,19 +7,19 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link {{ request()->has('status')? 'text-dark' : 'active' }}" href="/orders">All Orders</a>
+                <a class="taartely-paragraph nav-link {{ request()->has('status')? 'text-dark' : 'active' }}" href="/orders">All Orders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->has('status') && request('status') == 'pending' ? 'active' : 'text-dark' }}" href="/orders?status=pending">Pending</a>
+                <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'pending' ? 'active' : 'text-dark' }}" href="/orders?status=pending">Pending</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->has('status') && request('status') == 'accept' ? 'active' : 'text-dark' }}" href="/orders?status=accept">Accept</a>
+                <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'accept' ? 'active' : 'text-dark' }}" href="/orders?status=accept">Accept</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->has('status') && request('status') == 'completed' ? 'active' : 'text-dark' }}" href="/orders?status=completed">Completed</a>
+                <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'completed' ? 'active' : 'text-dark' }}" href="/orders?status=completed">Completed</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->has('status') && request('status') == 'cancelled' ? 'active' : 'text-dark' }}" href="/orders?status=cancelled">Cancelled</a>
+                <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'cancelled' ? 'active' : 'text-dark' }}" href="/orders?status=cancelled">Cancelled</a>
             </li>
         </ul>
     </div>

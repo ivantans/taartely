@@ -1,8 +1,14 @@
 @extends("layouts.main")
 
 @section('container')
-<a href="/seller/dashboard">Back to Dashboard</a>
-<h1>Create New Product</h1>
+<section class="container-mx-12-rem py-5">
+    <h1 class="text-center mb-3 taartely-color-2 fw-bold">Buat Produk Baru</h1>
+    <div class="row justify-content-evenly pt-10">
+        <a class="text-center pt-3" href="/seller/dashboard"><button class="btn taartely-button taartely-shadow rounded">Kembali ke Dashboard</button></a>
+    </div>
+  </section>
+
+<section class="container-mx-7-rem py-1 pb-4">
 <form action="/seller/dashboard/products" method="post" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
@@ -71,9 +77,9 @@
             <p class="text-danger">{{ $message }}</p>
         @enderror
     </div>
-    <button type="submit" class="btn btn-primary">Create New Product</button>
+    <button type="submit" class="btn taartely-button ">Create New Product</button>
   </form>
-
+</section>
 
 
 {{-- DON'T TOUCH --}}

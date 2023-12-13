@@ -8,13 +8,13 @@
         <img src="{{ asset("storage/".$product->image) }}" alt="" class="img-fluid">
     </div>
     <div class="col-md-6">
-        <h3 class="mb-0">{{ $product->name }}</h3>
-        <small>{{ $product->excerpt }}</small>
-        <h1 class="taartely-color-1">Rp{{ number_format($product->price, 0, ",",".") }}</h1>
+        <h3 class="fw-bold taartely-paragraph16 mt-2 mb-0">{{ $product->name }}</h3>
+        <small class="taartely-paragraph">{{ $product->excerpt }}</small>
+        <h1 class="taartely-color-1 p-40 pt-2 pb-2">Rp{{ number_format($product->price, 0, ",",".") }}</h1>
         <div class="row justify-content-start">
             <div class="col-md-2">
-                <small class="text-secondary fw-light"> Pengiriman</small>
-                <small class="text-secondary fw-light d-block my-5"> Amount</small>
+                <small class="taartely-paragraph fw-light"> Pengiriman</small>
+                <small class="taartely-paragraph fw-light d-block my-4"> Amount</small>
             </div>
             <div class="col-md-10">
                 <p class="text-success"><i class="bi bi-truck"></i> Gratis ongkir</p>
@@ -40,21 +40,21 @@
 </div>
 <div class="row container-mx-7-rem justify-content-between pt-2 pb-5">
     <div class="col-md-8 border rounded taartely-shadow p-3">
-        <h1>Deskripsi Produk</h1>
-        {!! $product->description !!}
+        <h1 class="fw-bold taartely-paragraph16 mt-2">Deskripsi Produk</h1>
+        <h3 class="taartely-paragraph">{!! $product->description !!}</h3>
     </div> 
 
     {{-- TODO: AMBIL DATA DARI CONTROLLER --}}
 
     <div class="col-md-3 border rounded p-3 taartely-shadow">
-        <h1>Lainnya </h1>
+        <h1 class="fw-bold taartely-paragraph16 mt-2">Lainnya </h1>
         <a class="text-decoration-none d-flex pb-5" href="">
             <div class="col">
                 <div class="card h-100">
                     <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title mt-2">Product 3</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">Product 3</h5>
+                        <p class="taartely-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
                     </div>
                     <button class="taartely-button rounded-bottom-1">Shop Now!</button>
                 </div>
@@ -65,8 +65,8 @@
                 <div class="card h-100">
                     <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title mt-2">Product 3</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">Product 3</h5>
+                        <p class="taartely-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
                     </div>
                     <button class="taartely-button rounded-bottom-1">Shop Now!</button>
                 </div>
@@ -77,8 +77,8 @@
                 <div class="card h-100">
                     <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title mt-2">Product 3</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">Product 3</h5>
+                        <p class="taartely-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
                     </div>
                     <button class="taartely-button rounded-bottom-1">Shop Now!</button>
                 </div>
@@ -89,8 +89,8 @@
                 <div class="card h-100">
                     <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title mt-2">Product 3</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">Product 3</h5>
+                        <p class="taartely-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
                     </div>
                     <button class="taartely-button rounded-bottom-1">Shop Now!</button>
                 </div>

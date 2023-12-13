@@ -4,15 +4,15 @@
 
 <section class="bg-jumbotron">
     <div class="row justify-content-between container-mx-7-rem py-5">
-        <div class="d-flex align-items-center col-lg-5">
+        <div class="d-flex align-items-center col-lg-6">
             <div>
                 <h1 class="taartely-title">Selamat Datang di Toko Kami!!!</h1>
                 <p class="taartely-paragraph">Mau Beli Kue Apa Hari ini?</p>
                 <button class="btn mt-4 taartely-button mb-3 taartely-shadow rounded">Shop Now!</button>
             </div>
         </div>
-        <div class="col-lg-5">
-            <img src="{{ asset("/storage/taartely-assets/kuee.png") }}" alt="" class="img-fluid" style="width:400px;"">
+        <div class="col-lg-4">
+            <img src="{{ asset("/storage/taartely-assets/kuee.png") }}" alt="" class="img-fluid" style="width:400px;">
         </div>
     </div>
 </section>
@@ -107,12 +107,14 @@
             <div>
                 <h1 class="taartely-color-1 fw-bold"><i></i> Lokasi kami</h1>
                 <img src="{{ asset("/storage/taartely-assets/lokasi.png") }}" alt="" class="img-fluid" style="width:300px;"">
-                <p>Jl. Indraprasta No.9b, Tegalrejo, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55244</p>
+                <p class="taartely-paragraph">Jl. Indraprasta No.9b, Tegalrejo, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55244</p>
             </div>
         </div>
     </div>
 
 </section>
 
+<section class="container-mx-7-rem py-3">
+</section>
 
 @endsection
