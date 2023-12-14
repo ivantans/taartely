@@ -42,7 +42,7 @@
             <td class="taartely-paragraph">{{ $product->category->name }}</td>
             <td class="taartely-paragraph">{{ $product->user->name }}</td>
             <td class="taartely-paragraph">{{ $product->excerpt }}</td>
-            <td class="taartely-paragraph">{!! $product->description !!}</td>
+            <td class="taartely-paragraph">{!! Str::limit($product->description) !!}</td>
             <td class="taartely-paragraph"><img src="{{ asset("storage/".$product->image) }}" alt="" style="width: 50px; height 50px;"></td>
             <td class="taartely-paragraph">{{ $product->created_at->diffForHumans() }}</td>  
             <td class="taartely-paragraph">
