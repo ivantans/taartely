@@ -6,10 +6,10 @@
             <div>
                 <h1 class="taartely-title">Selamat Datang di Toko Kami!!!</h1>
                 <p class="taartely-title1">Mau Beli Kue Apa Hari ini?</p>
-                <button class="btn fw-semibold mt-4 taartely-button1 mb-3 taartely-shadow rounded"><a class="nav-link" href="/products">Pesan Sekarang!</a></button>
+                <button class="btn fw-semibold mt-4 taartely-button1 mb-3 taartely-shadow"><a class="nav-link" href="/products">Pesan Sekarang!</a></button>
             </div>
         </div>
-        <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" alt="" class="img-fluid" style="width:400px;">
+        <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" alt="" class="img-fluid" style="width:450px; height:376px;">
     </div>
 </section>
 

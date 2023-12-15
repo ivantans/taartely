@@ -63,8 +63,7 @@
         {{-- * For user not login --}}
         @else
         <li class="nav-item px-2">
-          <a class="taartely-paragraph btn btn-dark p-2" style="background-color: #9E1545; color: #ffffff; padding: 10px 20px; border: none; 
-          border-radius: 5px; cursor: pointer; box-shadow: 2px 2px 4px #585767;" href="/login">Login</a>
+          <a class="taartely-paragraph btn taartely-button-login fw-semibold" href="/login">Login</a>
         </li>
         @endauth
 

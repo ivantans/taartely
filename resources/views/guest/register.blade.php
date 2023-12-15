@@ -3,7 +3,7 @@
 @section('container')
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="col-md-5 border rounded-3 border-1 bg-body">
-        <h1 class="text-center mt-5 mb-4">Register</h1>
+        <h1 class="p-55 text-center mb-3 taartely-color-2 pt-5 pb-4 fw-bold">Register</h1>
         <div class="row justify-content-center pt-3">
             <div class="col-md-10">
                 <form action="/register" method="post">
@@ -45,7 +45,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <button class="w-100 mt-3 btn-lg btn btn-primary" name="submit" type="submit">Submit</button>
+                        <button class="w-100 mt-3 btn-lg btn taartely-button" name="submit" type="submit">Submit</button>
                     </div>
                 </form>
                 <p class="text-center pb-2">Already have an account? <a href="/login" class="text-decoration-none">Login</a></p>

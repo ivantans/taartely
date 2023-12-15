@@ -91,6 +91,7 @@
 
 .taartely-button{
     background-color: #9E1545;
+    border-radius: 30px;
     font-size: 14px;
     color: #ffffff;
     padding: 10px 20px;
@@ -100,9 +101,20 @@
 
 .taartely-button1{
     background-color: #ffffff;
+    border-radius: 30px;
     font-size: 14px;
     color: #373639;
     padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}  
+
+.taartely-button-login{
+    background-color: #9E1545;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 6px 10px;
     border: none;
     cursor: pointer;
 }  
