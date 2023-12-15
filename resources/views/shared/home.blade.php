@@ -1,33 +1,29 @@
 @extends("layouts.main")
-
 @section('container')
-
 <section class="bg-jumbotron">
     <div class="row justify-content-between container-mx-7-rem py-5">
         <div class="d-flex align-items-center col-lg-6">
             <div>
                 <h1 class="taartely-title">Selamat Datang di Toko Kami!!!</h1>
-                <p class="taartely-paragraph">Mau Beli Kue Apa Hari ini?</p>
-                <button class="btn mt-4 taartely-button mb-3 taartely-shadow rounded">Shop Now!</button>
+                <p class="taartely-title1">Mau Beli Kue Apa Hari ini?</p>
+                <button class="btn fw-semibold mt-4 taartely-button1 mb-3 taartely-shadow rounded"><a class="nav-link" href="/products">Pesan Sekarang!</a></button>
             </div>
         </div>
-        <div class="col-lg-4">
-            <img src="{{ asset("/storage/taartely-assets/kuee.png") }}" alt="" class="img-fluid" style="width:400px;">
-        </div>
+        <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" alt="" class="img-fluid" style="width:400px;">
     </div>
 </section>
 
 {{-- TODO: REFACTOR CODE: AMBIL DATA DARI CONTROLLER --}}   
-<section class="container-mx-7-rem py-5">
+<section class="container-mx-7-rem pt-4 pb-5">
     <h1 class="text-center mb-3 taartely-color-2 fw-bold">Kue terlaris</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 mb-4 text-center">
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-2 mb-4 text-center">
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
                 <div class="card h-100 taartely-shadow py-4">
                     <img src="{{ asset("/storage/taartely-assets/kue1.png") }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Product 1</h5>
-                        <p class="taartely-paragraph card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, itaque. Lorem.</p>
+                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Hitam</h5>
+                        <p class="taartely-paragraph card-text">Kue hitam dengan nuansa elegan, cocok untuk kamu cewek dan cowok mamba.</p>
                     </div>
                 </div>
             </div>
@@ -37,8 +33,19 @@
                 <div class="card h-100 taartely-shadow py-4">
                     <img src="{{ asset("/storage/taartely-assets/kue2.png") }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Product 2</h5>
-                        <p class="taartely-paragraph card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, cupiditate.</p>
+                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Biru</h5>
+                        <p class="taartely-paragraph card-text">Kue Biru yang kece parah, warna biru gelap cocok untuk kamu yang suka dengan lautan.</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class="text-decoration-none d-flex" href="">
+            <div class="col">
+                <div class="card h-100 taartely-shadow py-4">
+                    <img src="{{ asset("/storage/taartely-assets/kue4.png") }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Bola</h5>
+                        <p class="taartely-paragraph card-text">Kue dengan tema sepak bola, cocok untuk kamu calon pemain timnas Indonesia.</p>
                     </div>
                 </div>
             </div>
@@ -48,8 +55,8 @@
                 <div class="card h-100 taartely-shadow py-4">
                     <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Product 3</h5>
-                        <p class="taartely-paragraph card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, obcaecati!</p>
+                        <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Putih</h5>
+                        <p class="taartely-paragraph card-text">Kue putih yang simpel dengan sedikit warna biru, kue ini cocok untuk kamu yang misterius.</p>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 
 @section('container')
 <section class="container-mx-12-rem py-5">
-    <h1 class="taartely-title text-center">Dashboard</h1>
+    <h1 class="text-center mb-3 taartely-color-2 fw-bold">Dashboard</h1>
     <div class="row justify-content-evenly pt-5">
         <div class="col-lg-3 border rounded text-center h-100 py-4 px-4">
             <p class="fw-bold taartely-paragraph16 mt-2 mb-0">Tambah Produk</p>

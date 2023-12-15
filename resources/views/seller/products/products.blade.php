@@ -4,12 +4,7 @@
 <section class="container-mx-12-rem py-5">
   <h1 class="text-center mb-3 taartely-color-2 fw-bold">Daftar Produk Taartely</h1>
   <div class="row justify-content-evenly pt-10">
-      <div class="col-lg-3 border rounded text-center h-100 py-4 px-4">
-          <p class="fw-bold taartely-paragraph16 mt-2 mb-0">Tambah Produk</p>
-          <p class="taartely-paragraph mb-0 pb-0">Ada Produk baru?</p>
-          <p class="taartely-paragraph mt-0 pt-0">Ayo tambah produk anda</p>
-          <a href="/seller/dashboard/products/create"><button class="btn taartely-button taartely-shadow rounded">Tambah product baru</button></a>
-      </div>
+      <a class="text-center pt-3" href="/seller/dashboard/products/create"><button class="btn taartely-button taartely-shadow rounded">Tambah produk baru</button></a>
       <a class="text-center pt-3" href="/seller/dashboard"><button class="btn taartely-button taartely-shadow rounded">Kembali ke Dashboard</button></a>
   </div>
 </section>

@@ -1,8 +1,8 @@
 @extends("layouts.main")
 
 @section('container')
-<a href="/seller/dashboard">Back to Dashboard</a>
-<h1>Edit Product</h1>
+<section class="container-mx-7-rem py-5">
+<h1 class="text-center mb-3 taartely-color-2 fw-bold">Edit Produk</h1>
 <form action="/seller/dashboard/products/{{ $product->slug }}" method="post" enctype="multipart/form-data">
     @csrf
     @method("put")
@@ -74,8 +74,9 @@
             <p class="text-danger">{{ $message }}</p>
         @enderror
     </div>
-    <button type="submit" class="btn btn-primary">Update Product</button>
+    <button type="submit" class="btn mt-1 taartely-button taartely-shadow rounded">Update Product</button>
   </form>
+</section>
 
 
 

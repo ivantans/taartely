@@ -19,42 +19,42 @@
       <ul class="navbar-nav ms-auto ">
 
         {{-- * All roles --}}
-        <li class="nav-item px-2"><a class="nav-link {{ Request::is("home") || Request::is("/") ? "active" : "" }}" href="/home">Home</a></li>
-        <li class="nav-item px-2"><a class="nav-link {{ Request::is("products") ? "active" : "" }}" href="/products">Product</a></li>
+        <li class="taartely-paragraph nav-item px-2"><a class="nav-link {{ Request::is("home") || Request::is("/") ? "active" : "" }}" href="/home">Home</a></li>
+        <li class="taartely-paragraph nav-item px-2"><a class="nav-link {{ Request::is("products") ? "active" : "" }}" href="/products">Product</a></li>
 
         {{-- * Only for buyer --}}
         @can("buyer")
-        <li class="nav-item px-2"><a class="nav-link {{ Request::is("carts") ? "active" : "" }}" href="/carts">My Cart</a></li>
-        <li class="nav-item px-2"><a class="nav-link {{ Request::is("orders") ? "active" : "" }}" href="/orders">My Order</a></li>
+        <li class="taartely-paragraph nav-item px-2"><a class="nav-link {{ Request::is("carts") ? "active" : "" }}" href="/carts">My Cart</a></li>
+        <li class="taartely-paragraph nav-item px-2"><a class="nav-link {{ Request::is("orders") ? "active" : "" }}" href="/orders">My Order</a></li>
         @endcan
 
         {{-- * Only for seller --}}
         @can("seller")
-        <li class="nav-item px-2"><a class="nav-link {{ Request::is("seller/dashboard") ? "active" : "" }}" href="/seller/dashboard">Dashboard</a></li>
+        <li class="taartely-paragraph nav-item px-2"><a class="nav-link {{ Request::is("seller/dashboard") ? "active" : "" }}" href="/seller/dashboard">Dashboard</a></li>
         @endcan
 
         {{-- * If user already login --}}
         @auth
         <div class="dropdown">
-          <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="taartely-paragraph btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Welcome back {{ auth()->user()->name }}
           </button>
           <ul class="dropdown-menu">
             {{-- * Buyer only --}}
             @can("buyer")
-            <li><a class="dropdown-item" href="/carts"><i class="bi bi-basket3-fill"></i> Keranjang</a></li>
-            <li><a class="dropdown-item" href="/orders"><i class="bi bi-cart"></i> Pesanan</a></li>
+            <li><a class="taartely-paragraph dropdown-item" href="/carts"><i class="bi bi-basket3-fill"></i> Keranjang</a></li>
+            <li><a class="taartely-paragraph dropdown-item" href="/orders"><i class="bi bi-cart"></i> Pesanan</a></li>
             @endcan
 
             {{-- * Seller only --}}
             @can("seller")
-            <li><a class="dropdown-item" href="/seller/dashboard"><i class="bi bi-layout-text-window"></i> Dashboard</a></li>
+            <li><a class="taartely-paragraph dropdown-item" href="/seller/dashboard"><i class="bi bi-layout-text-window"></i> Dashboard</a></li>
             @endcan
 
             <li>
               <form action="/logout" method="post">
                 @csrf
-                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                <button type="submit" class="taartely-paragraph dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
               </form>
             </li>
           </ul>
@@ -63,7 +63,7 @@
         {{-- * For user not login --}}
         @else
         <li class="nav-item px-2">
-          <a class="btn btn-dark p-2" style="background-color: #9E1545; color: #ffffff; padding: 10px 20px; border: none; 
+          <a class="taartely-paragraph btn btn-dark p-2" style="background-color: #9E1545; color: #ffffff; padding: 10px 20px; border: none; 
           border-radius: 5px; cursor: pointer; box-shadow: 2px 2px 4px #585767;" href="/login">Login</a>
         </li>
         @endauth

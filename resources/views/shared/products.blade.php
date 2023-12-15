@@ -5,21 +5,8 @@
 <p>{{ session("success") }}</p>
 @endif
 
-<section class="bg-jumbotron">
-    <div class="row justify-content-between container-mx-7-rem py-5">
-        <div class="d-flex align-items-center col-lg-6">
-            <div>
-                <h1 class="taartely-title">Yuk Lihat-lihat Produknya Taartely!!</h1>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <img src="{{ asset("/storage/taartely-assets/kuee.png") }}" alt="" class="img-fluid" style="width:400px;">
-        </div>
-    </div>
-</section>
-
 <section class="container-mx-7-rem py-4">
-    <h1 class="text-center taartely-color-2 fw-bold">Semua Produk</h1>
+    <h1 class="text-center taartely-color-2 fw-bold">Produk Taartely</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 mb-4">
         @foreach ($products as $product)
         <a class="text-decoration-none d-flex" href="/products/{{ $product->slug }}">

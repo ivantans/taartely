@@ -6,10 +6,14 @@
 }
 
 .taartely-title{
-    color: #9E1545;
-    text-shadow: 2px 2px 4px #585767;
+    color: #ffffff;
     font-weight: bold;
     font-size: 55px;
+}
+
+.taartely-title1{
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .p-18{
@@ -61,11 +65,13 @@
 }
 
 .bg-jumbotron{
-    background-color: #fae0e3;
+    background-color: #9E1545;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .bg-section{
-    background-color: #fef6f7;
+    background-color: #FBF3F4;
 }
 
 .taartely-border-top{
@@ -87,11 +93,19 @@
     background-color: #9E1545;
     font-size: 14px;
     color: #ffffff;
-    padding: 6px 12px;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
 }   
 
+.taartely-button1{
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #373639;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}  
 
 .navbar-background{
         background-color: rgb(255, 255, 255, 0.5);
@@ -108,6 +122,13 @@ footer p {
 
 .align{
     text-align: justify;
+}
+
+.layer2 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
 }
 
 /* ! DO NOT TOUCH, EDIT, OR DELETE */
