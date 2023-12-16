@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("user_id")->nullable();
             $table->bigInteger("total_price")->nullable();
+            $table->bigInteger("total_product")->nullable();
             $table->string("status")->nullable();
             $table->string("image")->nullable();
             $table->timestamps();

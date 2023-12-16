@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Order extends Model
 {
@@ -17,6 +18,11 @@ class Order extends Model
 
     public function orderDetails(){
         return $this->hasMany(OrderDetail::class);
+    }
+
+    public function isExpired(){
+        $now = Carbon::now();
+        return $now->diffInHours($this->created_at) > 12 && $this->status === 'accept';
     }
 
 

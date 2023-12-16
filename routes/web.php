@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SellerCategoryController;
+use App\Http\Controllers\SellerOrderController;
 use App\Http\Controllers\SellerProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// ONLY FOR BUYER
+// * ONLY FOR BUYER
 Route::middleware(["buyer"])->group(function () {
     Route::resource('/carts', CartController::class)
     ->except(["create", "show", "edit"])
@@ -33,9 +34,12 @@ Route::middleware(["buyer"])->group(function () {
     ]);
     Route::post('/checkout', [CheckOutController::class, 'store']);
     Route::get('/orders', [OrderController::class, 'index']);
+
+    Route::get('/payment/{order:id}', [CheckOutController::class, 'index']);
+    Route::put('/payment/{order:id}', [CheckOutController::class, 'payment']);
 });
 
-// ONLY FOR SELLER
+// * ONLY FOR SELLER
 Route::middleware(["seller"])->group(function () {
     Route::get('/seller/dashboard', function(){
         return view("seller.dashboard", [
@@ -44,10 +48,18 @@ Route::middleware(["seller"])->group(function () {
     }); 
     Route::resource("/seller/dashboard/products", SellerProductController::class);
     Route::resource("/seller/dashboard/categories", SellerCategoryController::class)->except("show");
+
+    Route::get("/seller/orders", [SellerOrderController::class, "index"]);
+    Route::put("/updateFromPending/{order:id}", [SellerOrderController::class, "updateFromPending"]);
+    Route::put("/updateFromDonePayment/{order:id}", [SellerOrderController::class, "updateFromDonePayment"]);
+    Route::put("/updateFromDonePaymentButCancel/{order:id}", [SellerOrderController::class, "updateFromDonePaymentButCancel"]);
+    Route::put("/updateFromProcess/{order:id}", [SellerOrderController::class, "updateFromProcess"]);
+
     Route::get("/seller/dashboard/products/s/checkSlug", [SellerProductController::class, 'checkSlug']);
     Route::get("/seller/dashboard/categories/s/checkSlug", [SellerProductController::class, 'checkSlug']);
 });
-// ONLY FOR USERS WHO ARE NOT LOGGED IN 
+
+// * ONLY FOR USERS WHO ARE NOT LOGGED IN 
 Route::middleware(["guest"])->group(function () {
     Route::get('/login', [LoginController::class, 'index']);
     Route::post('/login', [LoginController::class, 'login']);
@@ -56,7 +68,7 @@ Route::middleware(["guest"])->group(function () {
     Route::post('/register', [RegisterController::class, 'register']);
 });
 
-// ACCESSIBLE TO EVERYONE
+// * ACCESSIBLE TO EVERYONE
 Route::get('/', function(){
     return view('shared.home', [
         "title" => "Home"

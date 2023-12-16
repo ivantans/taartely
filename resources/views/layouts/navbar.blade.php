@@ -31,6 +31,7 @@
         {{-- * Only for seller --}}
         @can("seller")
         <li class="taartely-paragraph nav-item px-2"><a class="nav-link {{ Request::is("seller/dashboard") ? "active" : "" }}" href="/seller/dashboard">Dashboard</a></li>
+        <li class="taartely-paragraph nav-item px-2"><a class="nav-link {{ Request::is("seller/orders") ? "active" : "" }}" href="/seller/orders">Orders</a></li>
         @endcan
 
         {{-- * If user already login --}}
@@ -49,6 +50,7 @@
             {{-- * Seller only --}}
             @can("seller")
             <li><a class="taartely-paragraph dropdown-item" href="/seller/dashboard"><i class="bi bi-layout-text-window"></i> Dashboard</a></li>
+            <li><a class="taartely-paragraph dropdown-item" href="/seller/orders"><i class="bi bi-layout-text-window"></i> My Orders</a></li>
             @endcan
 
             <li>

@@ -9,22 +9,22 @@ use Illuminate\Http\Request;
 
 class CheckOutController extends Controller
 {
-    public function store(Request $request){
-        $validatedData = $request->validate([
-            "image" => "required|image|file|max:2048",
+    public function index(Order $order){
+        if(auth()->user()->id != $order->user_id){
+            return redirect()->back();
+        }
+
+        return view("buyer.payments.payment", [
+            "order" => $order
         ]);
+    }
 
-        $validatedData["total_price"] = $request->input("total_price");
-        $validatedData["status"] = "pending";
-
-
-        $validatedData["image"] = $request->file("image")->store("payment_proofs");
-        
+    public function store(Request $request){
         $order = new Order();
         $order->user_id = auth()->user()->id;
         $order->total_price = $request->input("total_price"); 
+        $order->total_product = $request->input("total_product");
         $order->status = 'pending';
-        $order->image = $validatedData["image"];
         $order->save();
 
         $cartItems = Cart::where("user_id", auth()->user()->id)->get();
@@ -39,5 +39,17 @@ class CheckOutController extends Controller
         $cartItems->each->delete();
 
         return redirect('/orders')->with('success', 'New orders has been added!');
+    }
+
+    public function payment(Request $request, Order $order){
+        $validatedData = $request->validate([
+            "image" => "required|image|file|max:2048",
+        ]);
+
+        $validatedData["image"] = $request->file("image")->store("payment_proofs");
+        $validatedData["status"] = "done_payment";
+        Order::where("id", $order->id)
+                ->update($validatedData);
+        return redirect('/orders')->with('success', 'Bukti bayar sudah diupload');
     }
 }
