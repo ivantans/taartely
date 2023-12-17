@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SellerCategoryController;
+use App\Http\Controllers\SellerDashboardController;
 use App\Http\Controllers\SellerOrderController;
 use App\Http\Controllers\SellerProductController;
 use Illuminate\Support\Facades\Route;
@@ -41,11 +42,7 @@ Route::middleware(["buyer"])->group(function () {
 
 // * ONLY FOR SELLER
 Route::middleware(["seller"])->group(function () {
-    Route::get('/seller/dashboard', function(){
-        return view("seller.dashboard", [
-            "title" => "Dashboard",
-        ]);
-    }); 
+    Route::get("seller/dashboard", [SellerDashboardController::class, "index"]);
     Route::resource("/seller/dashboard/products", SellerProductController::class);
     Route::resource("/seller/dashboard/categories", SellerCategoryController::class)->except("show");
 
