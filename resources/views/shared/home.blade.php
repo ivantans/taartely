@@ -20,7 +20,7 @@
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
                 <div class="card h-100 taartely-shadow py-4">
-                    <img src="{{ asset("/storage/taartely-assets/kue1.png") }}" class="card-img-top" alt="...">
+                    <img src="{{ asset("/storage/taartely-assets/kue1.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Hitam</h5>
                         <p class="taartely-paragraph card-text">Kue hitam dengan nuansa elegan, cocok untuk kamu cewek dan cowok mamba.</p>
@@ -31,7 +31,7 @@
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
                 <div class="card h-100 taartely-shadow py-4">
-                    <img src="{{ asset("/storage/taartely-assets/kue2.png") }}" class="card-img-top" alt="...">
+                    <img src="{{ asset("/storage/taartely-assets/kue2.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Biru</h5>
                         <p class="taartely-paragraph card-text">Kue Biru yang kece parah, warna biru gelap cocok untuk kamu yang suka dengan lautan.</p>
@@ -42,7 +42,7 @@
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
                 <div class="card h-100 taartely-shadow py-4">
-                    <img src="{{ asset("/storage/taartely-assets/kue4.png") }}" class="card-img-top" alt="...">
+                    <img src="{{ asset("/storage/taartely-assets/kue4.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Bola</h5>
                         <p class="taartely-paragraph card-text">Kue dengan tema sepak bola, cocok untuk kamu calon pemain timnas Indonesia.</p>
@@ -53,7 +53,7 @@
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
                 <div class="card h-100 taartely-shadow py-4">
-                    <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="...">
+                    <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Putih</h5>
                         <p class="taartely-paragraph card-text">Kue putih yang simpel dengan sedikit warna biru, kue ini cocok untuk kamu yang misterius.</p>
@@ -66,7 +66,7 @@
 
 
 {{-- * Section Visi misi taartely --}}
-<section class="bg-section text-center py-5">
+<section class="bg-section text-center py-5" data-aos="fade-down">
     <div class="container-mx-7-rem">
         <div class="d-flex flex-column mb-3">
             <div class="d-flex justify-content-center pb-5">
@@ -88,12 +88,12 @@
 
 <div class="row d-flex justify-content-between container-mx-7-rem py-5">
     <div class="col-md-6 d-flex align-items-center">
-        <div>
+        <div data-aos="fade-right">
             <h1 class="taartely-color-2 fw-bold">Tentang kami</h1>
             <p class="taartely-paragraph align">Eveniet, modi ratione qui eos, provident aperiam incidunt itaque pariatur quam unde facere, ipsa distinctio expedita at. Molestiae magnam reprehenderit voluptates qui sunt, consectetur ut ipsum cumque pariatur incidunt est quibusdam temporibus delectus placeat officia dolore cum laborum odio ipsa animi in! Recusandae laboriosam voluptates magni molestias laudantium cumque doloribus eligendi maxime, animi perferendis, blanditiis architecto sapiente obcaecati ex vero necessitatibus amet optio possimus sit, aspernatur placeat quam est! Aliquam deleniti voluptatum ullam, cum accusantium, sapiente at ad neque nesciunt perferendis aut dolore temporibus quaerat.</p>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" data-aos="fade-left">
         <div class="d-flex justify-content-end">
         <img src="{{ asset("/storage/taartely-assets/kue5.png") }}" alt="" class="img-fluid" style="width: 400px">
     </div>
@@ -101,7 +101,7 @@
 </div>
 
 
-<section class="bg-section">
+<section class="bg-section" data-aos="fade-down">
     <div class="row justify-content-between  container-mx-7-rem py-5">
         <div class="col-lg-5">
             <iframe

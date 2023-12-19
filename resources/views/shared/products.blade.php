@@ -12,7 +12,7 @@
         <a class="text-decoration-none d-flex" href="{{ auth()->user() ? "/products/".$product->slug : "/login" }}">
             <div class="col">
                 <div class="card h-100 taartely-shadow">
-                    <img src="{{ asset("/storage/".$product->image) }}" class="card-img-top" alt="...">
+                    <img src="{{ asset("/storage/".$product->image) }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-bold taartely-paragraph16 p-18 mt-2">{{ $product->name }}</h5>
                         <p  class="taartely-paragraph">{{ $product->excerpt }}</p>
