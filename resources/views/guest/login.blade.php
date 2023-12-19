@@ -1,19 +1,19 @@
 @extends('layouts.main')
 
 @section('container')
-@if (session()->has("success"))
-<div class="alert alert-success alert-dismissible fade show bottom-0 end-0 position-fixed" style="z-index:999" role="alert">
-    <strong>{{ session("success") }}</strong> Data berhasil ditambahkan, silahkan login
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-@endif
+    @if (session()->has("success"))
+    <div class="alert alert-success alert-dismissible fade show bottom-0 end-0 position-fixed" style="z-index:999" role="alert">
+        <strong>{{ session("success") }}</strong> Data berhasil ditambahkan, silahkan login
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
 
-@if (session()->has("loginError"))
-<div class="alert alert-danger alert-dismissible fade show bottom-0 end-0 position-fixed" style="z-index:999" role="alert">
-    <strong>{{ session("loginError") }}</strong> password atau email salah, silahkan coba lagi
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-@endif
+    @if (session()->has("loginError"))
+    <div class="alert alert-danger alert-dismissible fade show bottom-0 end-0 position-fixed" style="z-index:999" role="alert">
+        <strong>{{ session("loginError") }}</strong> password atau email salah, silahkan coba lagi
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="col-md-5 border rounded-3 border-1 bg-body">

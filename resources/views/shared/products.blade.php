@@ -9,7 +9,7 @@
     <h1 class="text-center taartely-color-2 fw-bold">Produk Taartely</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 mb-4 text-center">
         @foreach ($products as $product)
-        <a class="text-decoration-none d-flex" href="/products/{{ $product->slug }}">
+        <a class="text-decoration-none d-flex" href="{{ auth()->user() ? "/products/".$product->slug : "/login" }}">
             <div class="col">
                 <div class="card h-100 taartely-shadow">
                     <img src="{{ asset("/storage/".$product->image) }}" class="card-img-top" alt="...">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="text-center pb-4">
                         <button class="btn taartely-button p-16 rounded">Add to cart</button>
-                    </div>
+                    </div>    
                 </div>
             </div>
         </a>

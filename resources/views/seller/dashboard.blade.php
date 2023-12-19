@@ -43,7 +43,7 @@
                     {{-- <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="..."> --}}
                     <div class="card-body" style="width: 400px;">
                         <p class="taartely-paragraph">Total Pesanan</p>
-                        <h5 class="fw-bold taartely-paragraph16 mt-2">{{ $total_accept }}</h5>                        
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">{{ $total_completed }}</h5>                        
                     </div>
                 </div>
             </div>

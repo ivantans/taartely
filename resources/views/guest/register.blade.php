@@ -44,11 +44,23 @@
                           </div>
                         @enderror
                     </div>
+                    <div class="form-floating mb-2">
+                        <input type="address" name="address" id="address" class="form-control @error("address") is-invalid @enderror" value="{{ old("address") }}" placeholder="address">
+                        <label for="address">address</label>
+                        @error("address")
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                    </div>
+
+
+                    
                     <div class="mb-4">
                         <button class="w-100 mt-3 btn-lg btn taartely-button" name="submit" type="submit">Submit</button>
                     </div>
                 </form>
-                <p class="text-center pb-2">Already have an account? <a href="/login" class="text-decoration-none">Login</a></p>
+                <p class="text-center pb-2">Already have an account? <a href="/login" class="text-decoration-none">L    ogin</a></p>
             </div>
         </div>
     </div>

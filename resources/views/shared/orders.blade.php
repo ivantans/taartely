@@ -73,7 +73,7 @@
                             <button type="submit">Proses pesanan</button>
                         </form>
                         @endif  
-                        @if ($order->status=="done_payment")
+                        @if ($order->status=="done_payment" || $order->status=="pending")
                         <form action="/updateFromDonePaymentButCancel/{{ $order->id }}" method="post">
                             @csrf
                             @method("put")

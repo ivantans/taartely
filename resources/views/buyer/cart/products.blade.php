@@ -23,7 +23,7 @@
     <div class="card mb-3" style="max-width: 100%;">
         <div class="row g-0">
             <div class="col-md-1">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+                <img src="{{ asset("/storage/". $cart->image) }}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-7">
                 <div class="card-body py-2">
@@ -42,9 +42,9 @@
                         @method("put")
                         <div class="mb-3 input-group">
                             <input type="hidden" name="cart_id" value="{{ $cart->id }}">
-                            <button type="button" class="btn rounded-start btn-md taartely-border" onclick="decrementValue()"><i class="bi bi-dash"></i></button>
+                            {{-- <button type="button" class="btn rounded-start btn-md taartely-border" onclick="decrementValue()"><i class="bi bi-dash"></i></button> --}}
                             <input type="number" class="form-control @error("amount") is-invalid @enderror" id="amount" name="amount" value="{{ old("amount") < 1 ? $cart->amount:old($cart->amount) }}">
-                            <button type="button" class="btn btn-md taartely-border" onclick="incrementValue()"><i class="bi bi-plus"></i></button>
+                            {{-- <button type="button" class="btn btn-md taartely-border" onclick="incrementValue()"><i class="bi bi-plus"></i></button> --}}
                             @error("amount")
                             <div class="invalid-feedback">
                                 {{ $message }}

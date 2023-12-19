@@ -16,6 +16,7 @@ class SellerDashboardController extends Controller
             "total_done_payment" => Order::where("status", "done_payment")->count(),
             "total_process" => Order::where("status", "process")->count(),
             "total_cancelled" => Order::where("status", "cancelled")->count(),
+            "total_completed" => Order::where("status", "completed")->count(),
         ]);
     }
 }

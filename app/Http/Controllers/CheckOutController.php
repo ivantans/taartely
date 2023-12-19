@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CheckOutController extends Controller
 {
@@ -20,6 +21,18 @@ class CheckOutController extends Controller
     }
 
     public function store(Request $request){
+        $rules = [
+            'total_price' => 'required|numeric|min:0',
+            'total_product' => 'required|integer|min:1',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect('/carts')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $order = new Order();
         $order->user_id = auth()->user()->id;
         $order->total_price = $request->input("total_price"); 
