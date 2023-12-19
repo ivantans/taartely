@@ -1,25 +1,18 @@
 @extends('layouts.main')
 
 @section('container')
-<section class="container-mx-12-rem py-5">
-  <h1 class="text-center mb-3 taartely-color-2 fw-bold">Daftar Produk Taartely</h1>
-  <div class="row justify-content-evenly pt-10">
-      <a class="text-center pt-3" href="/seller/dashboard/products/create"><button class="btn taartely-button taartely-shadow rounded">Tambah produk baru</button></a>
-      <a class="text-center pt-3" href="/seller/dashboard"><button class="btn taartely-button taartely-shadow rounded">Kembali ke Dashboard</button></a>
-  </div>
-</section>
-
 @if (session()->has("success"))
     <p>{{ session("success") }}</p>
 @endif
-<section class="container-mx-7-rem py-5">
+<section class="container-mx-7-rem py-4 rounded">
+<h1 class="text-center mb-3 taartely-color-2 fw-bold">Daftar Produk Taartely</h1>
 <table class="table">
     <thead>
-      <tr>
+      <tr class="text-center">
         <th scope="col">#</th>
         <th scope="col">id</th>
         <th scope="col">name</th>
-        <th scope="col">category name</th>
+        <th scope="col">category</th>
         <th scope="col">pembuat</th>
         <th scope="col">excerpt</th>
         <th scope="col">description</th>

@@ -121,7 +121,6 @@
 
 </section>
 
-<section class="container-mx-7-rem py-3">
-</section>
+
 
 @endsection

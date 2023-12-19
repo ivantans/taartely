@@ -2,30 +2,30 @@
 
 @section("container")
 <div class="container-mx-7-rem py-4">
-    <h1 class="taartely-color-2 fw-bold">Pesanan Saya</h1>
+    <h1 class="taartely-color-2 fw-bold pb-3">Daftar Pesanan</h1>
     <div class="card">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="taartely-paragraph nav-link {{ request()->has('status')? 'text-dark' : 'active' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders">All Orders</a>
+                    <a class="taartely-paragraph nav-link {{ request()->has('status')? 'text-dark' : 'active' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders">Semua Pesanan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'pending' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=pending">Pending / Menunggu ketersediaan penjual</a>
+                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'pending' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=pending">Menunggu Persetujuan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'accept' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=accept">Accept / Perlu dibayar</a>
+                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'accept' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=accept">Perlu dibayar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'done_payment' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=done_payment">Done_payment / Sudah dibayar</a>
+                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'done_payment' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=done_payment">Sudah dibayar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'process' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=process">Process / Sedang di proses</a>
+                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'process' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=process">Proses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'completed' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=completed">Completed</a>
+                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'completed' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=completed">Selesai</a>
                 </li>
                 <li class="nav-item">
-                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'cancelled' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=cancelled">Cancelled</a>
+                    <a class="taartely-paragraph nav-link {{ request()->has('status') && request('status') == 'cancelled' ? 'active' : 'text-dark' }}" href="{{ auth()->user()->is_seller?"/seller":"" }}/orders?status=cancelled">Dibatalkan</a>
                 </li>
             </ul>
         </div>
@@ -35,23 +35,23 @@
 
             <div class="card w-100 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Status: {{ $order->status }}</h5>
+                    <h5 class="fw-bold taartely-paragraph16 p-18 mt-2">Status: {{ $order->status }}</h5>
                     <table class="table">
                         <tbody>
                             @foreach ($order->orderDetails as $orderDetail)
-                            <tr>
-                                <th scope="row">
-                                    <img class="img-fluid border" src="{{ asset("storage/".$orderDetail->product->image) }}"
-                                    alt="" style="width: 20px;height: 20px">
+                            <tr class="taartely-paragraph">
+                                <th scope="row" style="width: 60px;">
+                                    <img class="img-fluid" src="{{ asset("storage/".$orderDetail->product->image) }}"
+                                    alt="" style="width: 50px;height: 50px">
                                 </th>
-                                <td>{{ $orderDetail->product->name }}</td>
+                                <td style="width: 700px;">{{ $orderDetail->product->name }}</td>
                                 <td>{{ $orderDetail->quantity }}x</td>
                                 <td>Rp {{ number_format($orderDetail->product->price,0,".",".") }}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <p class="card-title">Total belanja: Rp. {{ number_format($order->total_price) }}</p>
+                    <p class="card-title"><b>Total belanja</b>: Rp. {{ number_format($order->total_price) }}</p>
                     @can("buyer")
                         @if ($order->status=="accept")
                         <a href="/payment/{{ $order->id }}">Bayar sekarang</a>
@@ -63,7 +63,7 @@
                         <form action="/updateFromPending/{{ $order->id }}" method="post">
                             @csrf
                             @method("put")
-                            <button type="submit">Terima pesanan</button>
+                            <button class="btn taartely-button p-16" type="submit">Terima pesanan</button>
                         </form>
                         @endif  
                         @if ($order->status=="done_payment")

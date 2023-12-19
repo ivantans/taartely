@@ -1,21 +1,83 @@
 @extends('layouts.main')
 
 @section('container')
-<section class="container-mx-12-rem py-5">
-    <h1 class="text-center mb-3 taartely-color-2 fw-bold">Dashboard</h1>
-    <div class="row justify-content-evenly pt-5">
-        <div class="col-lg-3 border rounded text-center h-100 py-4 px-4">
-            <p class="fw-bold taartely-paragraph16 mt-2 mb-0">Tambah Produk</p>
-            <p class="taartely-paragraph mb-0 pb-0">Ada Produk baru?</p>
-            <p class="taartely-paragraph mt-0 pt-0">Ayo tambah produk anda</p>
-            <a href="/seller/dashboard/products"><button class="btn mt-1 taartely-button taartely-shadow rounded">Tambah product</button></a>
+<div class="row container-mx-7-rem justify-content-between pt-3 pb-5">
+    <div class="col-md-8 taartely-shadow p-3">
+        <div class="col text-decoration-none d-flex pb-1">
+            <div class="bg-section rounded h-100 px-5">
+                {{-- <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="..."> --}}
+                <h2 class="taartely-color-2 fw-bold pt-4">Hi, Taartely!</h2>
+                <p class="taartely-paragraph">Ayo pantau terus progres usahamu. Jangan lupa perbarui dan tambah produk jika kamu memiliki produk baru</p>
+                <div class="pt-5 pb-5">
+                    <a href="/seller/dashboard/products"><button class="btn mt-1 taartely-button taartely-shadow rounded">Lihat produk</button></a>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-3 border rounded text-center h-100 py-4 px-4">
-            <p class="fw-bold taartely-paragraph16 mt-2 mb-0">Tambah Kategori</p>
-            <p class="taartely-paragraph mb-0 pb-0">Ada kategori baru?</p>
-            <p class="taartely-paragraph mt-0 pt-0">Ayo tambah kategori anda</p>
-            <a href="/seller/dashboard/categories"><button class="btn mt-1 taartely-button taartely-shadow rounded">Tambah kategori</button></a>
+        <div class="row container-mx-0-rem justify-content-between pt-2">
+            <div class="col-md-6 taartely-shadow p-3">
+                <div class="col text-decoration-none d-flex">
+                    <div class="bg-section rounded h-100 px-5 pt-4">
+                        <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" class="card-img-top" alt="...">
+                        <div class="pt-5 pb-4 text-center">
+                            <a href="/seller/dashboard/products/create"><button class="btn mt-1 taartely-button taartely-shadow rounded">Tambah produk</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-md-6 taartely-shadow p-3">
+                <div class="col text-decoration-none d-flex">
+                    <div class="bg-section rounded h-100 px-5 pt-4">
+                        <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" class="card-img-top" alt="...">
+                        <div class="pt-5 pb-4 text-center">
+                            <a href="/seller/dashboard/categories/create"><button class="btn mt-1 taartely-button taartely-shadow rounded">Tambah Kategori</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </div>
+    </div> 
+    
+    <div class="col-md-4 p-3 taartely-shadow">
+            <div class="col d-flex pb-3">
+                <div class="card border-0 bg-section h-100">
+                    {{-- <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="..."> --}}
+                    <div class="card-body" style="width: 400px;">
+                        <p class="taartely-paragraph">Total Pesanan</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">{{ $total_accept }}</h5>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex pb-3">
+                <div class="card border-0 bg-section h-100">
+                    {{-- <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="..."> --}}
+                    <div class="card-body" style="width: 400px;">
+                        <p class="taartely-paragraph">Perlu Dibuat</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">{{ $total_process }}
+                        </h5>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex pb-3">
+                <div class="card border-0 bg-section h-100">
+                    {{-- <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="..."> --}}
+                    <div class="card-body" style="width: 400px;">
+                        <p class="taartely-paragraph">Menunggu ACC</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">{{ $total_pending }}</h5>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex pb-3">
+                <div class="card border-0 bg-section h-100">
+                    {{-- <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top" alt="..."> --}}
+                    <div class="card-body" style="width: 400px;">
+                        <p class="taartely-paragraph">Ditolak</p>
+                        <h5 class="fw-bold taartely-paragraph16 mt-2">{{ $total_cancelled }}</h5>                        
+                    </div>
+                </div>
+            </div>
+            <div class="pt-2 pb-0 text-center">
+                <a href="/seller/orders"><button class="btn mt-1 taartely-button taartely-shadow rounded">Lihat Pesanan</button></a>
+            </div>
     </div>
-</section>
+</div>
 @endsection

@@ -3,10 +3,8 @@
 @section("container")
 <?php $total_price = 0; ?>
 
-<div class="container-mx-7-rem py-3">
-    <h1 class="taartely-color-2 mb-3 fw-bold">Keranjang Saya</h1>
-    
-
+<div class="container-mx-7-rem py-4">
+    <h1 class="taartely-color-2 mb-3 fw-bold pb-2">Keranjang Saya</h1>
     {{-- * Section nama penerima dan alamat user --}}
     <div class="card w-100 mb-3">
         <div class="card-body">
@@ -53,7 +51,7 @@
                             </div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn taartely-button" style="font-size:14px">Edit cart</button>
+                        <button type="submit" class="btn btn-primary" style="font-size:14px">Edit</button>
                     </form>
                     <form action="{{ route('carts.destroy', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                         @csrf
