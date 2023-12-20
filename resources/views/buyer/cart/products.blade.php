@@ -8,7 +8,7 @@
     {{-- * Section nama penerima dan alamat user --}}
     <div class="card w-100 mb-3">
         <div class="card-body">
-            <h5 class="fw-bold p-18 taartely-paragraph16 mt-2">Kirim ke alamat:</h5>
+            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Kirim ke alamat:</h5>
             <p class="taartely-paragraph">{{ auth()->user()->name }}</p>
 
             <p class="taartely-paragraph">{{ auth()->user()->address }}</p>
@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-7">
                 <div class="card-body py-2">
-                    <h6 class="fw-bold p-18 taartely-paragraph16 mt-2">{{ $cart->product->name }}</h6>
+                    <h6 class="fw-bold p-16 taartely-paragraph16 mt-2">{{ $cart->product->name }}</h6>
                     <p style="font-size:14px;" class="taartely-paragraph text mb-1">{{ $cart->product->excerpt }}</p>
                     <p style="font-size:14px;" class="taartely-paragraph text mb-1">Total: {{ $cart->amount }}</p>
                     <p style="font-size:14px;" class="taartely-paragraph text mb-1">Harga:
@@ -69,7 +69,7 @@
 
     <div class="card w-100 mb-3">
         <div class="card-body">
-            <h5 class="fw-bold p-18 taartely-paragraph16 mt-2">Rincian belanja:</h5>
+            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Rincian belanja:</h5>
                 <p class="taartely-paragraph">Total belanja ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
         </div>
     </div>
@@ -77,13 +77,13 @@
     {{-- * Section pembayaran --}}
     <div class="card w-100 mb-3">
         <div class="card-body">
-            <h5 class="fw-bold p-18 taartely-paragraph16 mt-2">Pembayaran:</h5>
+            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Pembayaran:</h5>
             {{-- * Menampilkan gambar QRIS --}}
             <form action="/checkout" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="total_price" value="{{ $total_price }}">
                 <input type="hidden" name="total_product" value="{{ $total_product }}">
-                <p class="fw-bold p-18 taartely-paragraph16 mt-2">Total belanja ({{ $total_product }} Product): <b>Rp. {{ number_format($total_price, "0", ".", ".") }}</b></p>
+                <p class="fw-bold p-16 taartely-paragraph16 mt-2">Total belanja ({{ $total_product }} Product): <b>Rp. {{ number_format($total_price, "0", ".", ".") }}</b></p>
             
             <button class="btn taartely-button">Check Out</button>
             </form>

@@ -74,7 +74,7 @@
             <p class="text-danger">{{ $message }}</p>
         @enderror
     </div>
-    <button type="submit" class="btn mt-1 taartely-button taartely-shadow rounded">Update Product</button>
+    <button type="submit" class="btn mt-1 taartely-button rounded">Update Product</button>
   </form>
 </section>
 @endsection

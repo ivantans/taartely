@@ -9,7 +9,6 @@
 <table class="table">
     <thead>
       <tr class="text-center">
-        <th scope="col">No</th>
         <th scope="col">name</th>
         <th scope="col">category</th>
         <th scope="col">excerpt</th>

@@ -35,7 +35,7 @@
 
             <div class="card w-100 mb-3">
                 <div class="card-body">
-                    <h5 class="fw-bold taartely-paragraph16 p-18 mt-2">Status: {{ $order->status }}</h5>
+                    <h5 class="fw-bold taartely-paragraph16 p-16 mt-2">Status: {{ $order->status }}</h5>
                     <table class="table">
                         <tbody>
                             @foreach ($order->orderDetails as $orderDetail)
@@ -63,7 +63,7 @@
                         <form action="/updateFromPending/{{ $order->id }}" method="post">
                             @csrf
                             @method("put")
-                            <button class="btn taartely-button p-16" type="submit">Terima pesanan</button>
+                            <button class="btn taartely-button p-14" type="submit">Terima pesanan</button>
                         </form>
                         @endif  
                         @if ($order->status=="done_payment")

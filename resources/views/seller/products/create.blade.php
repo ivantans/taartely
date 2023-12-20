@@ -4,7 +4,7 @@
 <section class="container-mx-12-rem py-5">
     <h1 class="text-center mb-3 taartely-color-2 fw-bold">Buat Produk Baru</h1>
     <div class="row justify-content-evenly pt-10">
-        <a class="text-center pt-3" href="/seller/dashboard"><button class="btn taartely-button taartely-shadow rounded">Kembali ke Dashboard</button></a>
+        <a class="text-center pt-3" href="/seller/dashboard"><button class="btn taartely-button rounded">Kembali ke Dashboard</button></a>
     </div>
   </section>
 

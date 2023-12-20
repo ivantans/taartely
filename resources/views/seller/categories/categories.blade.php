@@ -8,9 +8,9 @@
           <p class="fw-bold taartely-paragraph16 mt-2 mb-0">Tambah Kategori</p>
           <p class="taartely-paragraph mb-0 pb-0">Ada Kategori baru?</p>
           <p class="taartely-paragraph mt-0 pt-0">Ayo tambah Kategori anda</p>
-          <a href="/seller/dashboard/categories/create"><button class="btn taartely-button taartely-shadow rounded">Tambah kategori baru</button></a>
+          <a href="/seller/dashboard/categories/create"><button class="btn taartely-button rounded">Tambah kategori baru</button></a>
       </div>
-      <a class="text-center pt-3" href="/seller/dashboard/categories"><button class="btn taartely-button taartely-shadow rounded">Kembali ke Dashboard</button></a>
+      <a class="text-center pt-3" href="/seller/dashboard/categories"><button class="btn taartely-button rounded">Kembali ke Dashboard</button></a>
   </div>
 </section>
 @if (session()->has("success"))

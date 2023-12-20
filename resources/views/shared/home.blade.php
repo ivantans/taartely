@@ -6,7 +6,7 @@
             <div>
                 <h1 class="taartely-title">Selamat Datang di Toko Kami!!!</h1>
                 <p class="taartely-title1">Mau Beli Kue Apa Hari ini?</p>
-                <button class="btn fw-semibold mt-4 taartely-button1 mb-3 taartely-shadow"><a class="nav-link" href="/products">Pesan Sekarang!</a></button>
+                <button class="btn fw-semibold mt-4 taartely-button1 mb-3"><a class="nav-link" href="/products">Pesan Sekarang!</a></button>
             </div>
         </div>
         <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" alt="" class="img-fluid" style="width:450px; height:376px;">
@@ -15,11 +15,11 @@
 
 {{-- TODO: REFACTOR CODE: AMBIL DATA DARI CONTROLLER --}}   
 <section class="container-mx-7-rem pt-4 pb-5">
-    <h1 class="text-center mb-3 taartely-color-2 fw-bold">Kue terlaris</h1>
+    <h1 class="text-center mb-2 taartely-color-2 fw-bold">Kue terlaris</h1>
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-2 mb-4 text-center">
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
-                <div class="card h-100 taartely-shadow py-4">
+                <div class="card h-100 py-4">
                     <img src="{{ asset("/storage/taartely-assets/kue1.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Hitam</h5>
@@ -30,7 +30,7 @@
         </a>
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
-                <div class="card h-100 taartely-shadow py-4">
+                <div class="card h-100 py-4">
                     <img src="{{ asset("/storage/taartely-assets/kue2.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Biru</h5>
@@ -41,7 +41,7 @@
         </a>
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
-                <div class="card h-100 taartely-shadow py-4">
+                <div class="card h-100 py-4">
                     <img src="{{ asset("/storage/taartely-assets/kue4.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Bola</h5>
@@ -52,7 +52,7 @@
         </a>
         <a class="text-decoration-none d-flex" href="">
             <div class="col">
-                <div class="card h-100 taartely-shadow py-4">
+                <div class="card h-100 py-4">
                     <img src="{{ asset("/storage/taartely-assets/kue3.png") }}" class="card-img-top zoom" alt="...">
                     <div class="card-body">
                         <h5 class="fw-semibold taartely-color-3 card-title mt-2">Kue Putih</h5>
@@ -63,7 +63,6 @@
         </a>
     </div>
 </section>
-
 
 {{-- * Section Visi misi taartely --}}
 <section class="bg-section text-center py-5" data-aos="fade-down">
@@ -89,8 +88,8 @@
 <div class="row d-flex justify-content-between container-mx-7-rem py-5">
     <div class="col-md-6 d-flex align-items-center">
         <div data-aos="fade-right">
-            <h1 class="taartely-color-2 fw-bold">Tentang kami</h1>
-            <p class="taartely-paragraph align">Eveniet, modi ratione qui eos, provident aperiam incidunt itaque pariatur quam unde facere, ipsa distinctio expedita at. Molestiae magnam reprehenderit voluptates qui sunt, consectetur ut ipsum cumque pariatur incidunt est quibusdam temporibus delectus placeat officia dolore cum laborum odio ipsa animi in! Recusandae laboriosam voluptates magni molestias laudantium cumque doloribus eligendi maxime, animi perferendis, blanditiis architecto sapiente obcaecati ex vero necessitatibus amet optio possimus sit, aspernatur placeat quam est! Aliquam deleniti voluptatum ullam, cum accusantium, sapiente at ad neque nesciunt perferendis aut dolore temporibus quaerat.</p>
+            <h1 class="taartely-color-2 fw-bold pb-2">Tentang kami</h1>
+            <p class="taartely-paragraph align">Taartely adalah usaha produktif yang dimiliki oleh perorangan dan berlokasi di Yogyakarta. Hadir sejak tahun 2022, Taartely berfokus di bidang makanan, secara spesifik yaitu kue, yang dibuat berdasarkan permintaan pembeli. Kue yang dimaksud ialah kue ulang tahun yang tampilannya disesuaikan dengan keinginan pembeli sehingga memungkinkan adanya diskusi antara penjual dan pembeli terkait desain serta komponen penyusun kue. Taartely tidak hanya menyediakan kue custom, tetapi juga makanan penutup seperti puding dan roti-roti kecil. Sejauh ini, Taartely belum memiliki toko sehingga masih bersifat made by order dan bisa dikatakan homemade. Hal ini dapat dikatakan wajar mengingat Taartely berawal dari sebuah usaha kecil dan hingga kini pun masih terus berkembang sebagai UMKM. </p>
         </div>
     </div>
     <div class="col-md-6" data-aos="fade-left">
@@ -114,7 +113,7 @@
             <div>
                 <h1 class="taartely-color-1 fw-bold"><i></i> Lokasi kami</h1>
                 <img src="{{ asset("/storage/taartely-assets/lokasi.png") }}" alt="" class="img-fluid" style="width:300px;"">
-                <p class="taartely-paragraph">Jl. Indraprasta No.9b, Tegalrejo, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55244</p>
+                <p class="taartely-paragraph zoom">Jl. Indraprasta No.9b, Tegalrejo, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55244</p>
             </div>
         </div>
     </div>

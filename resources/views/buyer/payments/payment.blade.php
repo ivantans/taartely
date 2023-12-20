@@ -11,7 +11,7 @@
 
 <div class="card w-100 mb-3">
     <div class="card-body">
-        <h5 class="fw-bold p-18 taartely-paragraph16 mt-2">Pembayaran:</h5>
+        <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Pembayaran:</h5>
         {{-- * Menampilkan gambar QRIS --}}
         <img class="img-fluid my-4 border" src="{{ asset("storage\qris-images\qris.jpg") }}" alt="" style="width: 400px;height: 500px">
         <form action="/payment/{{ $order->id }}" method="post" enctype="multipart/form-data">
@@ -27,7 +27,7 @@
                 </div>
                 @enderror
             </div>
-            <p class="fw-bold p-18 taartely-paragraph16 mt-2">Total belanja ({{ $order->total_product }} Product): <b>Rp. {{ number_format($order->total_price, "0", ".", ".") }}</b></p>
+            <p class="fw-bold p-16 taartely-paragraph16 mt-2">Total belanja ({{ $order->total_product }} Product): <b>Rp. {{ number_format($order->total_price, "0", ".", ".") }}</b></p>
         
         <button class="btn taartely-button">Check Out</button>
         </form>

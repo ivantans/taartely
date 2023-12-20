@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="py-5">
-<div class="row container-mx-7-rem justify-content-between p-2 border rounded taartely-shadow">
+<div class="row container-mx-7-rem justify-content-between p-2 border rounded">
     <div class="col-md-6">
         <img src="{{ asset("storage/".$product->image) }}" alt="" class="img-fluid">
     </div>
@@ -22,16 +22,16 @@
                     @csrf
                     <div class="mb-3 input-group">
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <button type="button" class="btn rounded-start btn-md taartely-border" onclick="decrementValue()"><i class="bi bi-dash"></i></button>
+                        <button type="button" class="btn rounded-start btn-md" onclick="decrementValue()"></button>
                         <input type="number" class="form-control @error("amount") is-invalid @enderror" id="amount" name="amount" value="{{ old("amount", 1) }}">
-                        <button type="button" class="btn btn-md taartely-border" onclick="incrementValue()"><i class="bi bi-plus"></i></button>
+                        <button type="button" class="btn btn-md" onclick="incrementValue()"></button>
                         @error("amount")
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn taartely-button taartely-shadow" style="width: 100%">Add to Cart</button>
+                    <button type="submit" class="btn taartely-button" style="width: 100%">Masukkan Keranjang</button>
                 </form>     
             </div>
         </div>

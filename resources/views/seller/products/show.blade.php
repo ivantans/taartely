@@ -2,7 +2,7 @@
 
 @section("container")
 <section class="container-mx-12-rem py-5 text-center">
-    <a class="text-center pt-3" href="/seller/dashboard/products"><button class="btn taartely-button taartely-shadow rounded">Kembali ke Semua Products</button></a>
+    <a class="text-center pt-3" href="/seller/dashboard/products"><button class="btn taartely-button rounded">Kembali ke Semua Products</button></a>
 </section>
 <section class="container-mx-7-rem py-1 px-5 pb-5">
     <table>
