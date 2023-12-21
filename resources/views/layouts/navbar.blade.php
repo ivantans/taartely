@@ -54,7 +54,8 @@
             @endcan
 
             <li>
-              <form action="/logout" method="post">
+              {{-- ! Logout * Destination URL: /logout* Source URL: /logout --}}
+              <form action="{{ route("logout") }}" method="post">
                 @csrf
                 <button type="submit" class="taartely-paragraph dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
               </form>

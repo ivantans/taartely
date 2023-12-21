@@ -26,6 +26,6 @@
         @enderror
     </div>
     <button type="submit" class="btn btn-primary">Create New Categories</button>
-  </form>
+</form>
 
 @endsection

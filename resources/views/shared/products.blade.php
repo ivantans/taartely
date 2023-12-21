@@ -6,8 +6,8 @@
 @endif
 
 <section class="container-mx-7-rem py-4">
-    <h1 class="text-center taartely-color-2 fw-bold">Produk Taartely</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-5 mt-2 mb-4 text-center">
+    <h1 class="text-center taartely-color-2 pb-4 fw-bold">Produk Taartely</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-5 pb-4 text-center">
         @foreach ($products as $product)
         <a class="text-decoration-none d-flex" href="{{ auth()->user() ? "/products/".$product->slug : "/login" }}">
             <div class="col">
@@ -25,8 +25,9 @@
         </a>
         @endforeach
     </div>
+    <div class="container-mx-7-rem d-flex justify-content-center pt-2">
+        {{ $products->links() }}
+    </div>
 </section>
-<div class="container-mx-7-rem d-flex justify-content-center pb-3">
-    {{ $products->links() }}
-</div>
+
 @endsection

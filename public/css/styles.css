@@ -137,7 +137,6 @@ footer p {
 .zoom {
     padding: 20px;
     transition: transform .2s;
-    margin: 0 auto;
 }
   
 .zoom:hover {

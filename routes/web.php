@@ -125,4 +125,5 @@ Route::get('/products', [ProductController::class, 'index'])
 Route::get('/products/{product}', [ProductController::class, 'show'])
 ->name("productcontroller.show");
 
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout'])
+->name("logout.logout");
