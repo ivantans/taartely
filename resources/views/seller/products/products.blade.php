@@ -13,13 +13,12 @@
         <th scope="col">category</th>
         <th scope="col">excerpt</th>
         <th scope="col">image</th>
-        <th scope="col">Action</th>
+        <th scope="col">action</th>
     </tr>
     </thead>
     <tbody>
     @foreach ($products as $product)
           <tr>
-            <th scope="row">{{ $loop->iteration }}</th>
             <td class="taartely-paragraph">{{ $product->name }}</td>
             <td class="taartely-paragraph">{{ $product->category->name }}</td>
             <td class="taartely-paragraph">{{ $product->excerpt }}</td>

@@ -9,7 +9,7 @@
                 <h2 class="taartely-color-2 fw-bold pt-4">Hi, Taartely!</h2>
                 <p class="taartely-paragraph">Ayo pantau terus progres usahamu. Jangan lupa perbarui dan tambah produk jika kamu memiliki produk baru</p>
                 <div class="pt-5 pb-5">
-                    <a href="/seller/dashboard/products"><button class="btn mt-1 taartely-button rounded">Lihat produk</button></a>
+                    <a class="btn mt-1 taartely-button rounded" href="/seller/dashboard/products">Lihat produk</a>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                     <div class="bg-section rounded h-100 px-5 pt-4">
                         <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" class="card-img-top" alt="...">
                         <div class="pt-5 pb-4 text-center">
-                            <a href="/seller/dashboard/products/create"><button class="btn mt-1 taartely-button rounded">Tambah produk</button></a>
+                            <a class="btn mt-1 taartely-button rounded" href="/seller/dashboard/products/create">Tambah produk</a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="bg-section rounded h-100 px-5 pt-4">
                         <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" class="card-img-top" alt="...">
                         <div class="pt-5 pb-4 text-center">
-                            <a class="text-decoretion-none" href="/seller/dashboard/categories/create"><button class="btn mt-1 taartely-button rounded">Tambah Kategori</button></a>
+                            <a class="btn mt-1 taartely-button rounded" href="/seller/dashboard/categories/create">Tambah Kategori</a>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="pt-2 pb-0 text-center">
-                <a href="/seller/orders"><button class="btn mt-1 taartely-button rounded">Lihat Pesanan</button></a>
+                <a class="btn mt-1 taartely-button rounded" href="/seller/orders">Lihat Pesanan</a>
             </div>
     </div>
 </div>

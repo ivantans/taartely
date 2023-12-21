@@ -10,7 +10,6 @@
         <div class="card-body">
             <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Kirim ke alamat:</h5>
             <p class="taartely-paragraph">{{ auth()->user()->name }}</p>
-
             <p class="taartely-paragraph">{{ auth()->user()->address }}</p>
         </div>
     {{-- * End section nama penerima dan alamt user --}}
@@ -22,10 +21,10 @@
     <?php $total_price += $cart->amount * $cart->product->price;?>
     <div class="card mb-3" style="max-width: 100%;">
         <div class="row g-0">
-            <div class="col-md-1">
-                <img src="{{ asset("/storage/". $cart->product->image) }}" class="img-fluid rounded-start" alt="...">
+            <div class="col-md-2">
+                <img src="{{ asset("/storage/". $cart->product->image) }}" class="img-fluid rounded-start" style="width: 150px" alt="...">
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="card-body py-2">
                     <h6 class="fw-bold p-16 taartely-paragraph16 mt-2">{{ $cart->product->name }}</h6>
                     <p style="font-size:14px;" class="taartely-paragraph text mb-1">{{ $cart->product->excerpt }}</p>
@@ -35,7 +34,7 @@
 
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 pt-3">
                 <div class="card-body">
                     <form action="{{ route('carts.update', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                         @csrf
@@ -51,13 +50,13 @@
                             </div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary" style="font-size:14px">Edit</button>
+                        <button type="submit" class="btn btn-primary" style="font-size:14px">Simpan</button>
                     </form>
                     <form action="{{ route('carts.destroy', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                         @csrf
                         @method("delete")
                         <button type="submit" style="font-size:14px" onclick="return confirm('Are you sure?')"
-                            class="btn btn-danger">Delete</button>
+                            class="btn btn-danger">Hapus</button>
                     </form>
                 </div>
             </div>

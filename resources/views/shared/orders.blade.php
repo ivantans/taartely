@@ -45,7 +45,7 @@
                                     alt="" style="width: 50px;height: 50px">
                                 </th>
                                 <td style="width: 700px;">{{ $orderDetail->product->name }}</td>
-                                <td>{{ $orderDetail->quantity }}x</td>
+                                <td class="text-center">{{ $orderDetail->quantity }}x</td>
                                 <td>Rp {{ number_format($orderDetail->product->price,0,".",".") }}</td>
                             </tr>
                             @endforeach
@@ -54,37 +54,52 @@
                     <p class="card-title"><b>Total belanja</b>: Rp. {{ number_format($order->total_price) }}</p>
                     @can("buyer")
                         @if ($order->status=="accept")
-                        <a href="/payment/{{ $order->id }}">Bayar sekarang</a>
+                        <a class="btn taartely-button p-14" href="/payment/{{ $order->id }}">Bayar sekarang</a>
                         @endif  
                     @endcan
 
                     @can("seller")
                         @if ($order->status=="pending")
-                        <form action="/updateFromPending/{{ $order->id }}" method="post">
-                            @csrf
-                            @method("put")
-                            <button class="btn taartely-button p-14" type="submit">Terima pesanan</button>
-                        </form>
+                        <div class="row">
+                            <div class="d-flex pt-2 col-lg-3" style="width: 180px">
+                                <form action="/updateFromPending/{{ $order->id }}" method="post">
+                                    @csrf
+                                    @method("put")
+                                    <button class="btn taartely-button p-14" type="submit">Terima pesanan</button>
+                                </form>
+                            </div>
+                            <div class="d-flex pt-2 col-lg-9">
+                                <form action="/updateFromDonePaymentButCancel/{{ $order->id }}" method="post">
+                                    @csrf
+                                    @method("put")
+                                    <button class="btn taartely-button p-14" type="submit">Tolak pesanan</button>
+                                </form>
+                            </div>
+                        </div>
                         @endif  
                         @if ($order->status=="done_payment")
-                        <form action="/updateFromDonePayment/{{ $order->id }}" method="post">
-                            @csrf
-                            @method("put")
-                            <button type="submit">Proses pesanan</button>
-                        </form>
-                        @endif  
-                        @if ($order->status=="done_payment" || $order->status=="pending")
-                        <form action="/updateFromDonePaymentButCancel/{{ $order->id }}" method="post">
-                            @csrf
-                            @method("put")
-                            <button type="submit">Cancel pesanan</button>
-                        </form>
-                        @endif  
+                        <div class="row g-0">
+                            <div class="d-flex pt-2 col-lg-3">
+                                <form action="/updateFromDonePayment/{{ $order->id }}" method="post">
+                                    @csrf
+                                    @method("put")
+                                    <button class="btn taartely-button p-14" type="submit">Proses pesanan</button>
+                                </form>
+                            </div>
+                            <div class="d-flex pt-2 col-lg-9">
+                                <form action="/updateFromDonePaymentButCancel/{{ $order->id }}" method="post">
+                                    @csrf
+                                    @method("put")
+                                    <button class="btn taartely-button p-14" type="submit">Tolak pesanan</button>
+                                </form>
+                            </div>
+                        </div>
+                        @endif   
                         @if ($order->status=="process")
                         <form action="/updateFromProcess/{{ $order->id }}" method="post">
                             @csrf
                             @method("put")
-                            <button type="submit">Pesanan Selesai</button>
+                            <button class="btn taartely-button p-14" type="submit">Pesanan Selesai</button>
                         </form>
                         @endif  
                     @endcan

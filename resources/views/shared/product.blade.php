@@ -22,9 +22,9 @@
                     @csrf
                     <div class="mb-3 input-group">
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <button type="button" class="btn rounded-start btn-md" onclick="decrementValue()"></button>
+                        {{-- <button type="button" class="btn rounded-start btn-md" onclick="decrementValue()"></button> --}}
                         <input type="number" class="form-control @error("amount") is-invalid @enderror" id="amount" name="amount" value="{{ old("amount", 1) }}">
-                        <button type="button" class="btn btn-md" onclick="incrementValue()"></button>
+                        {{-- <button type="button" class="btn btn-md" onclick="incrementValue()"></button> --}}
                         @error("amount")
                         <div class="invalid-feedback">
                             {{ $message }}
