@@ -83,4 +83,6 @@
 </form>
 
 </section>
+<script src="/js/slug.js"></script>
+<script src="/js/imagePreview.js"></script>
 @endsection

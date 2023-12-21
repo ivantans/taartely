@@ -31,5 +31,6 @@
     @endif
     <button type="submit" class="btn btn-primary">Update New Categories</button>
   </form>
-  
+  <script src="/js/slug.js"></script>
+  <script src="/js/imagePreview.js"></script>
 @endsection

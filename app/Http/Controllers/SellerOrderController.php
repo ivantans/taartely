@@ -7,29 +7,31 @@ use Illuminate\Http\Request;
 
 class SellerOrderController extends Controller
 {
+    // SellerOrderController.php
     public function index(Request $request){
         $this->authorize("seller");
-        $orders = Order::all();
 
-        foreach ($orders as $order) {
+        $orders_query = Order::with(['orderDetails.product']);
+
+        foreach ($orders_query->get() as $order) {
             if ($order->isExpired()) {
                 $order->status = 'cancelled';
                 $order->save();
             }
         }
 
-        $orders_query = Order::query();
         $status = $request->input('status');
         if ($status) {
             $orders_query->where('status', $status);
         }
 
-        $orders = $orders_query->latest();
+        $orders = $orders_query->latest()->get();
 
         return view("shared.orders", [
-            "orders" => $orders->get()
+            "orders" => $orders
         ]);
     }
+
 
     public function updateFromPending(Order $order){
         $this->authorize("seller");

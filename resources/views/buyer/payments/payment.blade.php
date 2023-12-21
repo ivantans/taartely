@@ -39,4 +39,5 @@
 {{-- * End section pembayaran --}}
 </div>
 </div>
+<script src="/js/imagePreview.js"></script>
 @endsection

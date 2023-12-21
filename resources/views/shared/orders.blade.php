@@ -29,10 +29,11 @@
                 </li>
             </ul>
         </div>
-        
         <div class="card-body">
+            @if ($orders->count() == 0)
+                <h1>no data</h1>
+            @else
             @foreach ($orders as $order)
-
             <div class="card w-100 mb-3">
                 <div class="card-body">
                     <h5 class="fw-bold taartely-paragraph16 p-16 mt-2">Status: {{ $order->status }}</h5>
@@ -121,9 +122,13 @@
                         @endif
                     @endcan
                     
+
                 </div>
             </div>
+
             @endforeach
+            @endif
+            
         </div>
     </div>
 </div>
