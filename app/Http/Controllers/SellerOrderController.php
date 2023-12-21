@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class SellerOrderController extends Controller
 {
     public function index(Request $request){
+        $this->authorize("seller");
         $orders = Order::all();
 
         foreach ($orders as $order) {
@@ -23,14 +24,15 @@ class SellerOrderController extends Controller
             $orders_query->where('status', $status);
         }
 
-        $orders = $orders_query->get();
+        $orders = $orders_query->latest();
 
         return view("shared.orders", [
-            "orders" => $orders
+            "orders" => $orders->get()
         ]);
     }
 
     public function updateFromPending(Order $order){
+        $this->authorize("seller");
         $data["status"] = "accept";
 
         Order::where("id", $order->id)
@@ -40,6 +42,7 @@ class SellerOrderController extends Controller
     }
 
     public function updateFromDonePayment(Order $order){
+        $this->authorize("seller");
         $data["status"] = "process";
 
         Order::where("id", $order->id)
@@ -48,6 +51,7 @@ class SellerOrderController extends Controller
         return redirect("/seller/orders")->with("success", "berhasil di process");
     }
     public function updateFromDonePaymentButCancel(Order $order){
+        $this->authorize("seller");
         $data["status"] = "cancelled";
 
         Order::where("id", $order->id)
@@ -56,6 +60,7 @@ class SellerOrderController extends Controller
         return redirect("/seller/orders")->with("success", "berhasil di cancel");
     }
     public function updateFromProcess(Order $order){
+        $this->authorize("seller");
         $data["status"] = "completed";
 
         Order::where("id", $order->id)

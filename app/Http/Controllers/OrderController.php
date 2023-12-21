@@ -10,6 +10,7 @@ class OrderController extends Controller
 {
     public function index(Request $request)
     {
+        $this->authorize("buyer");
         $userId = auth()->user()->id;
 
         // Menggunakan eloquent query builder untuk mengambil data pesanan
@@ -33,11 +34,11 @@ class OrderController extends Controller
         }
 
         // Mengambil data pesanan setelah memperbarui status
-        $orders = $orderQuery->get();
+        $orders = $orderQuery->latest();
 
         return view("shared.orders", [
             "title" => "My Order",
-            "orders" => $orders
+            "orders" => $orders->get()
         ]);
     }
     

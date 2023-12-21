@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class CheckOutController extends Controller
 {
     public function index(Order $order){
+        $this->authorize("buyer");
         if(auth()->user()->id != $order->user_id){
             return redirect()->back();
         }
@@ -21,6 +22,7 @@ class CheckOutController extends Controller
     }
 
     public function store(Request $request){
+        $this->authorize("buyer");
         $rules = [
             'total_price' => 'required|numeric|min:0',
             'total_product' => 'required|integer|min:1',
@@ -55,6 +57,7 @@ class CheckOutController extends Controller
     }
 
     public function payment(Request $request, Order $order){
+        $this->authorize("buyer");
         $validatedData = $request->validate([
             "image" => "required|image|file|max:2048",
         ]);

@@ -9,6 +9,7 @@ class SellerDashboardController extends Controller
 {
 
     public function index(){
+        $this->authorize("seller");
         return view("seller.dashboard", [
             "title" => "Dashboard",
             "total_pending" => Order::where("status", "pending")->count(),
