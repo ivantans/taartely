@@ -91,6 +91,7 @@
                                     @method("put")
                                     <button class="btn taartely-button p-14" type="submit">Proses pesanan</button>
                                 </form>
+
                             </div>
                             <div class="d-flex pt-2 col-lg-9">
 
@@ -100,6 +101,7 @@
                                     @method("put")
                                     <button class="btn taartely-button p-14" type="submit">Tolak pesanan</button>
                                 </form>
+                                
                             </div>
                         </div>
                         @endif   
@@ -111,6 +113,12 @@
                             <button class="btn taartely-button p-14" type="submit">Pesanan Selesai</button>
                         </form>
                         @endif  
+
+                        @if($order->status=="done_payment" || $order->status=="process" || $order->status=="completed" || $order->status=="cancelled" )
+
+                        <a href="{{ asset("/storage/".$order->image) }}" target="__blank">Lihat bukti pembayaran</a>
+
+                        @endif
                     @endcan
                     
                 </div>
