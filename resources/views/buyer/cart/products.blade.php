@@ -37,6 +37,8 @@
             </div>
             <div class="col-md-4">
                 <div class="card-body">
+
+                    {{-- ! Update Keranjang * Destination URL: /carts * Source URL: /carts --}}
                     <form action="{{ route('carts.update', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                         @csrf
                         @method("put")
@@ -53,12 +55,14 @@
                         </div>
                         <button type="submit" class="btn btn-primary" style="font-size:14px">Edit</button>
                     </form>
+
+                    {{-- ! Hapus Keranjang * Destination URL: /carts * Source URL: /carts --}}
                     <form action="{{ route('carts.destroy', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                         @csrf
                         @method("delete")
-                        <button type="submit" style="font-size:14px" onclick="return confirm('Are you sure?')"
-                            class="btn btn-danger">Delete</button>
+                        <button type="submit" style="font-size:14px" onclick="return confirm('Are you sure?')"  class="btn btn-danger">Delete</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -70,7 +74,7 @@
     <div class="card w-100 mb-3">
         <div class="card-body">
             <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Rincian belanja:</h5>
-                <p class="taartely-paragraph">Total belanja ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
+            <p class="taartely-paragraph">Total belanja ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
         </div>
     </div>
 
@@ -78,15 +82,16 @@
     <div class="card w-100 mb-3">
         <div class="card-body">
             <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Pembayaran:</h5>
-            {{-- * Menampilkan gambar QRIS --}}
-            <form action="/checkout" method="post" enctype="multipart/form-data">
+
+            {{-- ! Checkout Keranjang * Destination URL: /checkout * Source URL: /carts --}}
+            <form action="{{ route('checkout.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="total_price" value="{{ $total_price }}">
                 <input type="hidden" name="total_product" value="{{ $total_product }}">
                 <p class="fw-bold p-16 taartely-paragraph16 mt-2">Total belanja ({{ $total_product }} Product): <b>Rp. {{ number_format($total_price, "0", ".", ".") }}</b></p>
-            
-            <button class="btn taartely-button">Check Out</button>
+                <button class="btn taartely-button">Check Out</button>
             </form>
+
         </div>
     {{-- * End section pembayaran --}}
     </div>

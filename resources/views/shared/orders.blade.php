@@ -60,28 +60,35 @@
 
                     @can("seller")
                         @if ($order->status=="pending")
-                        <form action="/updateFromPending/{{ $order->id }}" method="post">
+                        {{-- ! Update status to accept * Destination URL: /updateFromPending/{order} * Source URL: /seller/orders --}}
+                        <form action="{{ route("orders.updateFromPending", ["order" => $order->id]) }}" method="post">
                             @csrf
                             @method("put")
                             <button class="btn taartely-button p-14" type="submit">Terima pesanan</button>
                         </form>
                         @endif  
+
                         @if ($order->status=="done_payment")
-                        <form action="/updateFromDonePayment/{{ $order->id }}" method="post">
+                        {{-- ! Update status to process * Destination URL: /updateFromDonePayment/{order} * Source URL: /seller/orders --}}
+                        <form action="{{ route("orders.updateFromDonePayment", ["order" => $order->id]) }}" method="post">
                             @csrf
                             @method("put")
                             <button type="submit">Proses pesanan</button>
                         </form>
                         @endif  
+
                         @if ($order->status=="done_payment" || $order->status=="pending")
-                        <form action="/updateFromDonePaymentButCancel/{{ $order->id }}" method="post">
+                        {{-- ! Update status to cancelled * Destination URL: /updateFromDonePaymentButCancel/{order} * Source URL: /seller/orders --}}
+                        <form action="{{ route("orders.updateFromDonePaymentButCancel", ["order" => $order->id]) }}" method="post">
                             @csrf
                             @method("put")
                             <button type="submit">Cancel pesanan</button>
                         </form>
                         @endif  
+
                         @if ($order->status=="process")
-                        <form action="/updateFromProcess/{{ $order->id }}" method="post">
+                        {{-- ! Update status to completed * Destination URL: /updateFromProcess/{order} * Source URL: /seller/orders --}}
+                        <form action="{{ route("orders.updateFromProcess", ["order" => $order->id]) }}" method="post">
                             @csrf
                             @method("put")
                             <button type="submit">Pesanan Selesai</button>

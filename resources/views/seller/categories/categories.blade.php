@@ -36,11 +36,14 @@
             <td class="taartely-paragraph">{{ $category->slug }}</td>
             <td>
                 <a href="/seller/dashboard/categories/{{ $category->slug }}/edit">Edit</a>|
-                <form action="/seller/dashboard/categories/{{ $category->slug }}" method="post" class="d-inline">
+
+                {{-- ! Delete Categories * Destination URL: seller/dashboard/categories/{category} * Source URL: /seller/dashboard/categories --}}
+                <form action="{{ route("categories.destroy", ["category" => $category->slug]) }}" method="post" class="d-inline">
                   @csrf
                   @method("delete")
                   <button type="submit" class="btn-link btn p-0 m-0" onclick="return confirm('are you sure?')">Delete</button>
                 </form>  
+                
               </td>  
           </tr>
         @endforeach

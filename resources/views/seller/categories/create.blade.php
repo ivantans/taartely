@@ -3,7 +3,9 @@
 @section('container')
 <a href="/seller/dashboard">Back to Dashboard</a>
 <h1>Create New Product</h1>
-<form action="/seller/dashboard/categories" method="post" enctype="multipart/form-data">
+
+{{-- ! Store new Categories * Destination URL: seller/dashboard/categories * Source URL: /seller/dashboard/categories/create --}}
+<form action="{{ route("categories.store") }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="name" class="form-label">Category Name:</label>

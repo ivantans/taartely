@@ -3,7 +3,9 @@
 @section('container')
 <a href="/seller/dashboard">Back to Dashboard</a>
 <h1>Edit categories</h1>
-<form action="/seller/dashboard/categories/{{ $category->slug }}" method="post" enctype="multipart/form-data">
+
+{{-- ! Delete Categories * Destination URL: seller/dashboard/categories/{category} * Source URL: seller/dashboard/categories/{category}/edit --}}
+<form action="{{ route("categories.update", ["category" => $category->slug]) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method("put")
     <div class="mb-3">
@@ -29,4 +31,5 @@
     @endif
     <button type="submit" class="btn btn-primary">Update New Categories</button>
   </form>
+  
 @endsection

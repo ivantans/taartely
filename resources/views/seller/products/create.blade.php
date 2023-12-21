@@ -9,7 +9,9 @@
   </section>
 
 <section class="container-mx-7-rem py-1 pb-4">
-<form action="/seller/dashboard/products" method="post" enctype="multipart/form-data">
+
+{{-- ! Simpan product baru * Destination URL: /seller/dashboard/products * Source URL: /seller/dashboard/products/create --}}
+<form action="{{ route("products.store") }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="name" class="form-label">Product Name:</label>
@@ -78,6 +80,7 @@
         @enderror
     </div>
     <button type="submit" class="btn taartely-button ">Create New Product</button>
-  </form>
+</form>
+
 </section>
 @endsection

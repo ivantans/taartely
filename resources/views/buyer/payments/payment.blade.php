@@ -14,7 +14,9 @@
         <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Pembayaran:</h5>
         {{-- * Menampilkan gambar QRIS --}}
         <img class="img-fluid my-4 border" src="{{ asset("storage\qris-images\qris.jpg") }}" alt="" style="width: 400px;height: 500px">
-        <form action="/payment/{{ $order->id }}" method="post" enctype="multipart/form-data">
+
+        {{-- ! Update Bukti Payment * Destination URL: /payment/{order} * Source URL: /payment{order} --}}
+        <form action="{{ route("payment.payment", ["order" => $order->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method("put")
             <div class="mb-3">
@@ -28,9 +30,9 @@
                 @enderror
             </div>
             <p class="fw-bold p-16 taartely-paragraph16 mt-2">Total belanja ({{ $order->total_product }} Product): <b>Rp. {{ number_format($order->total_price, "0", ".", ".") }}</b></p>
-        
-        <button class="btn taartely-button">Check Out</button>
+            <button class="btn taartely-button">Check Out</button>
         </form>
+
     </div>
 {{-- * End section pembayaran --}}
 </div>

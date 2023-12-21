@@ -18,7 +18,9 @@
             </div>
             <div class="col-md-10 mt-4">
                 <p class="text-success"><i class="bi bi-truck"></i> Gratis ongkir</p>
-                <form action="/carts" method="post">
+                
+                {{-- ! Store new carts * Destination URL: /carts * Source URL: /products/{product} --}}
+                <form action="{{ route("carts.store") }}" method="post">
                     @csrf
                     <div class="mb-3 input-group">
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -31,7 +33,7 @@
                         </div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn taartely-button" style="width: 100%">Masukkan Keranjang</button>
+                    <button type="submit" class="btn taartely-button" style="width: 100%" @can("seller") disabled @endcan>Masukkan Keranjang</button>
                 </form>     
             </div>
         </div>

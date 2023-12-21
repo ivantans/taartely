@@ -20,7 +20,9 @@
         <h1 class="p-55 text-center mb-3 taartely-color-2 pt-5 pb-4 fw-bold">Login</h1>
         <div class="row justify-content-center pt-3">
             <div class="col-md-10">
-                <form action="/login" method="post">
+
+                {{-- ! Login Attempt * Destination URL: /login * Source URL: /login --}}
+                <form action="{{ route("login.login") }}" method="post">
                     @csrf
                     <div class="form-floating mb-2">
                         <input type="email" name="email" id="email" class="form-control @error("email") is-invalid @enderror" value="{{ old("email") }}" placeholder="Email">
@@ -44,6 +46,7 @@
                         <button class="w-100 mt-3 btn-lg btn taartely-button" name="submit" type="submit">Submit</button>
                     </div>
                 </form>
+                
                 <p class="text-center pb-2">Don't have an account? <a href="/register" class="text-decoration-none">Register</a></p>
             </div>
         </div>

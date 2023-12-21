@@ -3,7 +3,9 @@
 @section('container')
 <section class="container-mx-7-rem py-5">
 <h1 class="text-center mb-3 taartely-color-2 fw-bold">Edit Produk</h1>
-<form action="/seller/dashboard/products/{{ $product->slug }}" method="post" enctype="multipart/form-data">
+
+{{-- ! Update product * Destination URL: /seller/dashboard/products/{product} * Source URL: /seller/dashboard/products/{product}/edit --}}
+<form action="{{ route("products.update", ["product" => $product->slug]) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method("put")
     <div class="mb-3">
@@ -76,5 +78,6 @@
     </div>
     <button type="submit" class="btn mt-1 taartely-button rounded">Update Product</button>
   </form>
+
 </section>
 @endsection

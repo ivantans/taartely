@@ -27,11 +27,14 @@
             <td class="text-center fs-5" style="width: 150px">
               <a href="/seller/dashboard/products/{{ $product->slug }}" class="badge bg-info"><i class="bi bi-eye"></i></a>
               <a href="/seller/dashboard/products/{{ $product->slug }}/edit" class="badge bg-warning"><i class="bi bi-pencil-square"></i></a>
-              <form action="/seller/dashboard/products/{{ $product->slug }}" method="post" class="d-inline">
+
+              {{-- ! Delete product * Destination URL: /seller/dashboard/products/{product} * Source URL: /seller/dashboard/products --}}
+              <form action="{{ route("products.destroy", ["product" => $product->slug]) }}" method="post" class="d-inline">
                 @csrf
                 @method("delete")
                 <button class="badge bg-danger bg-info border-0" type="submit" onclick="return confirm('are you sure?')"><i class="bi bi-trash"></i></button>
               </form>  
+
             </td>  
           </tr>
     @endforeach

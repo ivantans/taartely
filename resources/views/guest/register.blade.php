@@ -6,7 +6,9 @@
         <h1 class="p-55 text-center mb-3 taartely-color-2 pt-5 pb-4 fw-bold">Register</h1>
         <div class="row justify-content-center pt-3">
             <div class="col-md-10">
-                <form action="/register" method="post">
+
+                {{-- ! Simpan data user baru * Destination URL: /register * Source URL: /register --}}
+                <form action="{{ route("register.register") }}" method="post">
                     @csrf
                     <div class="form-floating mb-2">
                         <input type="name" name="name" id="name" class="form-control @error("name") is-invalid @enderror" value="{{ old("name") }}" placeholder="Name">
@@ -53,29 +55,14 @@
                           </div>
                         @enderror
                     </div>
-
-
-                    
                     <div class="mb-4">
                         <button class="w-100 mt-3 btn-lg btn taartely-button" name="submit" type="submit">Submit</button>
                     </div>
                 </form>
+                
                 <p class="text-center pb-2">Already have an account? <a href="/login" class="text-decoration-none">L    ogin</a></p>
             </div>
         </div>
     </div>
 </div>
-
-{{-- 
-    <form action="/register" method="post">
-    @csrf
-    <input type="text" name="name">
-    @error('name')
-        {{ $message }}
-    @enderror
-    <input type="text" name="username">
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <button type="submit">register</button>
-    </form> --}}
 @endsection
