@@ -30,7 +30,6 @@ class CheckOutController extends Controller
             'address' => 'required|max:255',
             'due_date' => 'required|date|after_or_equal:today|date_format:Y-m-d',
             'phone_number' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
@@ -42,7 +41,6 @@ class CheckOutController extends Controller
         if (!$user->phone_number) {
             $user->update(['phone_number' => $request->input('phone_number')]);
         }
-
         $order = new Order();
         $order->user_id = auth()->user()->id;
         $order->total_price = $request->input("total_price"); 
@@ -64,7 +62,6 @@ class CheckOutController extends Controller
             $orderDetail->save();
         }
         $cartItems->each->delete();
-
         return redirect('/orders')->with('success', 'New orders has been added!');
     }
     public function payment(Request $request, Order $order){
