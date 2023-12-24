@@ -103,7 +103,6 @@ class SellerCategoryController extends Controller
         $this->authorize("seller");
         Category::where("id", $category->id)
                     ->update(["status" => 0]);
-
         return redirect("/seller/dashboard/categories")->with("success", "data berhasil dihapus");
     }
 

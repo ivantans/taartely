@@ -29,7 +29,6 @@ class SellerProductController extends Controller
     public function create()
     {
         $this->authorize("seller");
-
         return view("seller.products.create", [
             "title" => "Create New Product",
             "categories" => Category::all()
@@ -64,7 +63,6 @@ class SellerProductController extends Controller
     public function show(Product $product)
     {
         $this->authorize("seller");
-
         return view("seller.products.show", [
             "title" => $product->name,
             "product" => $product,

@@ -32,7 +32,6 @@ class SellerOrderController extends Controller
         ]);
     }
 
-
     public function updateFromPending(Order $order){
         $this->authorize("seller");
         $data["status"] = "accept";

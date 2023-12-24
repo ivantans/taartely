@@ -19,8 +19,7 @@ class CartController extends Controller
             "carts" => Cart::with(['user', 'product'])->where("user_id", auth()->user()->id)
                             ->latest()
                             ->get(),
-            "total_product" => Cart::where("user_id", auth()->user()->id)->count(),
-            
+            "total_product" => Cart::where("user_id", auth()->user()->id)->count(),       
         ]);
     }
 

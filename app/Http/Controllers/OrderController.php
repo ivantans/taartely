@@ -13,7 +13,6 @@ class OrderController extends Controller
         $this->authorize("buyer");
         $userId = auth()->user()->id;
 
-        // Menggunakan eloquent query builder untuk mengambil data pesanan
         $orders_query = Order::with(['orderDetails.product'])->where('user_id', $userId);
 
         // Memeriksa dan memperbarui status pesanan yang sudah melewati batas waktu
@@ -23,16 +22,11 @@ class OrderController extends Controller
                 $order->save();
             }
         }
-
-        // Menggunakan eloquent query builder untuk mengambil data pesanan
-
-        // Menambahkan kondisi status jika disediakan
         $status = $request->input('status');
         if ($status) {
             $orders_query->where('status', $status);
         }
 
-        // Mengambil data pesanan setelah memperbarui status
         $orders = $orders_query->latest()->get();
 
         return view("shared.orders", [

@@ -16,7 +16,6 @@ class CheckOutController extends Controller
         if(auth()->user()->id != $order->user_id){
             return redirect()->back();
         }
-
         return view("buyer.payments.payment", [
             "order" => $order
         ]);
