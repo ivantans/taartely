@@ -2,18 +2,23 @@
 
 @section('container')
 @if (session()->has("success"))
-    <p>{{ session("success") }}</p>
+<div class="alert alert-success alert-dismissible fade show bottom-0 end-0 position-fixed" style="z-index:999" role="alert">
+    <strong>{{ session("success") }}</strong> Data berhasil diperbarui
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 @endif
+
 <section class="container-mx-7-rem py-4 rounded">
-<h1 class="text-center mb-3 taartely-color-2 fw-bold">Daftar Produk Taartely</h1>
-<table class="table">
+<a href="/seller/dashboard" class="taartely-paragraph text-decoration-none"><i class="bi bi-arrow-left-short" style="font-size: 18px;"></i>Kembali</a>
+<h1 class="text-center pb-4 taartely-color-2 fw-bold">Daftar Produk Taartely</h1>
+<table class="table pb-2">
     <thead>
       <tr class="text-center">
-        <th scope="col">name</th>
-        <th scope="col">category</th>
-        <th scope="col">excerpt</th>
-        <th scope="col">image</th>
-        <th scope="col">action</th>
+        <th scope="col">Nama Produk</th>
+        <th scope="col">Kategori</th>
+        <th scope="col">Ringkasan</th>
+        <th scope="col">Gambar</th>
+        <th scope="col">Tindakan</th>
     </tr>
     </thead>
     <tbody>
@@ -39,8 +44,8 @@
     @endforeach
         </tbody>
     </table>
-</section>
     <div class="container-mx-7-rem d-flex justify-content-center pb-3">
       {{ $products->links() }}
     </div>
+</section>
 @endsection

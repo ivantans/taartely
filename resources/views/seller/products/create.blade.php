@@ -1,14 +1,9 @@
 @extends("layouts.main")
 
 @section('container')
-<section class="container-mx-12-rem py-5">
+<section class="container-mx-12-rem py-4">
+    <a href="/seller/dashboard" class="taartely-paragraph text-decoration-none"><i class="bi bi-arrow-left-short" style="font-size: 18px;"></i>Kembali</a>
     <h1 class="text-center mb-3 taartely-color-2 fw-bold">Buat Produk Baru</h1>
-    <div class="row justify-content-evenly pt-10">
-        <a class="text-center pt-3" href="/seller/dashboard"><button class="btn taartely-button rounded">Kembali ke Dashboard</button></a>
-    </div>
-  </section>
-
-<section class="container-mx-7-rem py-1 pb-4">
 
 {{-- ! Simpan product baru * Destination URL: /seller/dashboard/products * Source URL: /seller/dashboard/products/create --}}
 <form action="{{ route("products.store") }}" method="post" enctype="multipart/form-data">
@@ -79,7 +74,7 @@
             <p class="text-danger">{{ $message }}</p>
         @enderror
     </div>
-    <button type="submit" class="btn taartely-button ">Create New Product</button>
+    <button type="submit" class="btn taartely-button ">Buat Produk Baru</button>
 </form>
 
 </section>

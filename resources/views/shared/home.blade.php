@@ -9,7 +9,7 @@
                 <button class="btn fw-semibold mt-4 taartely-button1 mb-3"><a class="nav-link" href="/products">Pesan Sekarang!</a></button>
             </div>
         </div>
-        <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" alt="" class="img-fluid" style="width:450px; height:376px;">
+        <img src="{{ asset("/storage/taartely-assets/KUE.png") }}" alt="" class="img-fluid" data-aos="fade-left" style="width:450px; height:376px;">
     </div>
 </section>
 
@@ -65,7 +65,27 @@
 </section>
 
 {{-- * Section Visi misi taartely --}}
-<section class="bg-section text-center py-5" data-aos="fade-down">
+<section class="bg-section text-center py-5">
+    <div class="container-mx-7-rem" data-aos="fade-down">
+        <div class="d-flex flex-column mb-3">
+            <div class="d-flex justify-content-center pb-3">
+                <div class="col-md-6">
+                    <h1 class="taartely-color-2 fw-bold pb-2">Panduan Pemesanan</h1>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center pb-5">
+                <div class="col-md-4">
+                    <img src="{{ asset("/storage/taartely-assets/logotaartelyy.png") }}" alt="taartelylogo" class="img-fluid">
+                </div>
+            </div>
+          </div>
+    </div>
+{{-- * End section visi misi taartely --}}
+</section>
+
+
+
+<div class="text-center py-5" data-aos="fade-down">
     <div class="container-mx-7-rem">
         <div class="d-flex flex-column mb-3">
             <div class="d-flex justify-content-center pb-5">
@@ -80,27 +100,25 @@
             </div>
           </div>
     </div>
-{{-- * End section visi misi taartely --}}
-</section>
-
-
-
-<div class="row d-flex justify-content-between container-mx-7-rem py-5">
-    <div class="col-md-6 d-flex align-items-center">
-        <div data-aos="fade-right">
-            <h1 class="taartely-color-2 fw-bold pb-2">Tentang kami</h1>
-            <p class="taartely-paragraph align">Taartely adalah usaha produktif yang dimiliki oleh perorangan dan berlokasi di Yogyakarta. Hadir sejak tahun 2022, Taartely berfokus di bidang makanan, secara spesifik yaitu kue, yang dibuat berdasarkan permintaan pembeli. Kue yang dimaksud ialah kue ulang tahun yang tampilannya disesuaikan dengan keinginan pembeli sehingga memungkinkan adanya diskusi antara penjual dan pembeli terkait desain serta komponen penyusun kue. Taartely tidak hanya menyediakan kue custom, tetapi juga makanan penutup seperti puding dan roti-roti kecil. Sejauh ini, Taartely belum memiliki toko sehingga masih bersifat made by order dan bisa dikatakan homemade. Hal ini dapat dikatakan wajar mengingat Taartely berawal dari sebuah usaha kecil dan hingga kini pun masih terus berkembang sebagai UMKM. </p>
-        </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-left">
-        <div class="d-flex justify-content-end">
-        <img src="{{ asset("/storage/taartely-assets/kue5.png") }}" alt="" class="img-fluid" style="width: 400px">
-    </div>
-    </div>
 </div>
 
-
 <section class="bg-section" data-aos="fade-down">
+    <div class="row d-flex justify-content-between container-mx-7-rem py-5" data-aos="fade-down">
+        <div class="col-md-6 d-flex align-items-center">
+            <div data-aos="fade-right">
+                <h1 class="taartely-color-2 fw-bold pb-2">Tentang kami</h1>
+                <p class="taartely-paragraph align">Taartely adalah usaha produktif yang dimiliki oleh perorangan dan berlokasi di Yogyakarta. Hadir sejak tahun 2022, Taartely berfokus di bidang makanan, secara spesifik yaitu kue, yang dibuat berdasarkan permintaan pembeli. Kue yang dimaksud ialah kue ulang tahun yang tampilannya disesuaikan dengan keinginan pembeli sehingga memungkinkan adanya diskusi antara penjual dan pembeli terkait desain serta komponen penyusun kue. Taartely tidak hanya menyediakan kue custom, tetapi juga makanan penutup seperti puding dan roti-roti kecil. Sejauh ini, Taartely belum memiliki toko sehingga masih bersifat made by order dan bisa dikatakan homemade. Hal ini dapat dikatakan wajar mengingat Taartely berawal dari sebuah usaha kecil dan hingga kini pun masih terus berkembang sebagai UMKM. </p>
+            </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+            <div class="d-flex justify-content-end">
+                <img src="{{ asset("/storage/taartely-assets/kue5.png") }}" alt="" class="img-fluid" style="width: 400px">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="py-5" data-aos="fade-down">
     <div class="row justify-content-between  container-mx-7-rem py-5">
         <div class="col-lg-5">
             <iframe
@@ -117,13 +135,11 @@
             </div>
         </div>
     </div>
-
-</section>
+</div>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init();
 </script>
-
 
 @endsection

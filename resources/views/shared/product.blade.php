@@ -3,12 +3,12 @@
 @section('container')
 
 <div class="py-5">
-<div class="row container-mx-7-rem justify-content-between p-2 border rounded">
+<div class="row container-mx-7-rem justify-content-between p-5 border rounded">
     <div class="col-md-6">
         <img src="{{ asset("storage/".$product->image) }}" alt="" class="img-fluid">
     </div>
     <div class="col-md-6">
-        <h3 class="fw-bold taartely-paragraph16 mt-5 mb-0">{{ $product->name }}</h3>
+        <h3 class="fw-bold taartely-paragraph16 mb-0">{{ $product->name }}</h3>
         <small class="taartely-paragraph">{{ $product->excerpt }}</small>
         <h1 class="taartely-color-1 p-40 pt-2 pb-2">Rp{{ number_format($product->price, 0, ",",".") }}</h1>
         <div class="row justify-content-start mt-4">
