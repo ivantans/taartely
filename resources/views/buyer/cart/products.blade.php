@@ -88,6 +88,13 @@
                 @csrf
                 <input type="hidden" name="total_price" value="{{ $total_price }}">
                 <input type="hidden" name="total_product" value="{{ $total_product }}">
+                <input type="text" name="address" value="{{ old("address", auth()->user()->address)}}">
+                <input type="text" name="phone_number" value="{{ old("phone_number", auth()->user()->phone_number)}}" placeholder="notelp">
+                <input type="text" name="note" value="{{ old("note")}}" placeholder="catatan untuk penjual">
+                <input type="date" name="due_date">
+                @error("due_date")
+                <p>{{ $message }}</p>
+                @enderror
                 <p class="fw-bold p-16 taartely-paragraph16 mt-2">Total belanja ({{ $total_product }} Product): <b>Rp. {{ number_format($total_price, "0", ".", ".") }}</b></p>
                 <button class="btn taartely-button">Check Out</button>
             </form>

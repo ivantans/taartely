@@ -36,6 +36,12 @@
             @foreach ($orders as $order)
             <div class="card w-100 mb-3">
                 <div class="card-body">
+                    {{-- * ALAMAT --}}
+                    <p>pembeli: {{ $order->user->name }}</p>
+                    <p>Alamat: {{ $order->address }}</p>
+                    <p>dikirim pada tanggal: {{ $order->due_date }}</p>
+                    <p>No telp pembeli: {{ $order->phone_number }}</p>
+                    <p>pesan untuk penjual: {{ $order->note }}</p>
                     <h5 class="fw-bold taartely-paragraph16 p-16 mt-2">Status: {{ $order->status }}</h5>
                     <table class="table">
                         <tbody>

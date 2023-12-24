@@ -16,6 +16,10 @@ return new class extends Migration
             $table->foreignId("user_id")->nullable();
             $table->bigInteger("total_price")->nullable();
             $table->bigInteger("total_product")->nullable();
+            $table->string("address")->nullable();
+            $table->date("due_date")->nullable();
+            $table->string("phone_number")->nullable();
+            $table->string("note")->nullable();
             $table->string("status")->nullable();
             $table->string("image")->nullable();
             $table->timestamps();
