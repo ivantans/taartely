@@ -16,7 +16,7 @@ class SellerCategoryController extends Controller
         $this->authorize("seller");
         return view("seller.categories.categories", [
             "title" => "Categories",
-            "categories" => Category::paginate(5)->withQueryString()
+            "categories" => Category::where("status", 1)->paginate(5)->withQueryString()
         ]);
     }
 
@@ -61,6 +61,9 @@ class SellerCategoryController extends Controller
     public function edit(Category $category)
     {
         $this->authorize("seller");
+        if($category->status == 0){
+            return redirect("seller/dashboard/categories");
+        }
         return view("seller.categories.edit", [
             "title" => $category->name,
             "category" => $category
@@ -93,9 +96,15 @@ class SellerCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        // $this->authorize("seller");
+        // Category::destroy($category->id);
+        // return redirect('/seller/dashboard/categories')->with('success', 'Category has been deleted!');
+
         $this->authorize("seller");
-        Category::destroy($category->id);
-        return redirect('/seller/dashboard/categories')->with('success', 'Category has been deleted!');
+        Category::where("id", $category->id)
+                    ->update(["status" => 0]);
+
+        return redirect("/seller/dashboard/categories")->with("success", "data berhasil dihapus");
     }
 
     public function checkSlug(Request $request){
