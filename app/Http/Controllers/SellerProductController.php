@@ -19,7 +19,7 @@ class SellerProductController extends Controller
 
         return view("seller.products.products", [
             "title" => "Product",
-            "products" => Product::with(["user", "category"])->where("user_id", auth()->user()->id)->paginate(5)->withQueryString()
+            "products" => Product::with(["user", "category"])->where("user_id", auth()->user()->id)->where("status", 1)->paginate(5)->withQueryString()
         ]);
     }
 
@@ -126,13 +126,20 @@ class SellerProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        // $this->authorize("seller");
+
+        // if($product->image){
+        //     Storage::delete($product->image);
+        // }
+
+        // Product::destroy($product->id);
+
+        // return redirect('/seller/dashboard/products')->with('success', 'Product has been deleted!');
+
         $this->authorize("seller");
 
-        if($product->image){
-            Storage::delete($product->image);
-        }
-
-        Product::destroy($product->id);
+        $product = Product::where("id", $product->id)
+                    ->update(["status" => 0]);
 
         return redirect('/seller/dashboard/products')->with('success', 'Product has been deleted!');
     }

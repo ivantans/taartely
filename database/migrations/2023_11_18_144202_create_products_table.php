@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text("description");
             $table->string("image")->nullable();
             $table->bigInteger("price");
+            $table->boolean("status")->default(1);
             $table->timestamps();
         });
     }

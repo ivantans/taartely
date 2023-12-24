@@ -91,7 +91,7 @@
                 <input type="text" name="address" value="{{ old("address", auth()->user()->address)}}">
                 <input type="text" name="phone_number" value="{{ old("phone_number", auth()->user()->phone_number)}}" placeholder="notelp">
                 <input type="text" name="note" value="{{ old("note")}}" placeholder="catatan untuk penjual">
-                <input type="date" name="due_date">
+                <input type="date" name="due_date" value="{{ old("due_date") }}">
                 @error("due_date")
                 <p>{{ $message }}</p>
                 @enderror

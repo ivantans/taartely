@@ -30,7 +30,6 @@ class CheckOutController extends Controller
             'address' => 'required|max:255',
             'due_date' => 'required|date|after_or_equal:today|date_format:Y-m-d',
             'phone_number' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'note' => 'string|max:255',
 
         ];
         $validator = Validator::make($request->all(), $rules);
