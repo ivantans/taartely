@@ -69,14 +69,10 @@
     <div class="container-mx-7-rem" data-aos="fade-down">
         <div class="d-flex flex-column mb-3">
             <div class="d-flex justify-content-center pb-3">
-                <div class="col-md-6">
                     <h1 class="taartely-color-2 fw-bold pb-2">Panduan Pemesanan</h1>
-                </div>
             </div>
-            <div class="d-flex justify-content-center pb-5">
-                <div class="col-md-4">
-                    <img src="{{ asset("/storage/taartely-assets/logotaartelyy.png") }}" alt="taartelylogo" class="img-fluid">
-                </div>
+            <div class="d-flex justify-content-center pb-1">
+                <img src="{{ asset("/storage/taartely-assets/langkahpesan.png") }}" alt="taartelylogo" class="img-fluid">
             </div>
           </div>
     </div>
