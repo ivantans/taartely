@@ -81,22 +81,30 @@
     {{-- * Section pembayaran --}}
     <div class="card w-100 mb-3">
         <div class="card-body">
-            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Pembayaran:</h5>
-
+            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Lengkapi data berikut:</h5>
             {{-- ! Checkout Keranjang * Destination URL: /checkout * Source URL: /carts --}}
             <form action="{{ route('checkout.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="total_price" value="{{ $total_price }}">
+                <input type="hidden" class="form-control" name="total_price" value="{{ $total_price }}">
                 <input type="hidden" name="total_product" value="{{ $total_product }}">
-                <input type="text" name="address" value="{{ old("address", auth()->user()->address)}}">
-                <input type="text" name="phone_number" value="{{ old("phone_number", auth()->user()->phone_number)}}" placeholder="notelp">
-                <input type="text" name="note" value="{{ old("note", "-")}}" placeholder="catatan untuk penjual">
-                <input type="date" name="due_date" value="{{ old("due_date") }}">
+
+                <label for="address" class="form-label taartely-paragraph">Alamat Pengiriman:</label>
+                <input type="text" class="form-control taartely-paragraph" name="address" value="{{ old("address", auth()->user()->address)}}">
+
+                <label for="phone_number" class="form-label taartely-paragraph">Nomor Telephon:</label>
+                <input type="text" class="form-control taartely-paragraph" name="phone_number" value="{{ old("phone_number", auth()->user()->phone_number)}}" placeholder="notelp">
+
+                <label for="note" class="form-label taartely-paragraph">Catatan:</label>
+                <input type="text" class="form-control taartely-paragraph" name="note" value="{{ old("note")}}" placeholder="catatan untuk penjual">
+
+                <label for="due_date" class="form-label taartely-paragraph">Tanggal Pengiriman:</label>
+                <input type="date" class="form-control taartely-paragraph" name="due_date" value="{{ old("due_date") }}">
+
                 @error("due_date")
                 <p>{{ $message }}</p>
                 @enderror
                 <p class="fw-bold p-16 taartely-paragraph16 mt-2">Total belanja ({{ $total_product }} Product): <b>Rp. {{ number_format($total_price, "0", ".", ".") }}</b></p>
-                <button class="btn taartely-button">Check Out</button>
+                <button class="btn btn-success">Buat Pesanan</button>
             </form>
 
         </div>

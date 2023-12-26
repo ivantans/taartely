@@ -31,17 +31,39 @@
         </div>
         <div class="card-body">
             @if ($orders->count() == 0)
-                <h1>no data</h1>
+                <h1 class="taartely-paragraph text-center pt-2">Data tidak tersedia</h1>
             @else
             @foreach ($orders as $order)
             <div class="card w-100 mb-3">
                 <div class="card-body">
                     {{-- * ALAMAT --}}
-                    <p>pembeli: {{ $order->user->name }}</p>
-                    <p>Alamat: {{ $order->address }}</p>
-                    <p>dikirim pada tanggal: {{ $order->due_date }}</p>
-                    <p>No telp pembeli: {{ $order->phone_number }}</p>
-                    <p>pesan untuk penjual: {{ $order->note }}</p>
+                    <table class="taartely-paragraph">
+                        <tr>
+                        <td class="mb-2" style="width: 200px">Pembeli</td>
+                        <td class="mt-5 mb-0" style="width: 10px">:</td>
+                        <td>{{ $order->user->name }}</td>
+                        </tr>
+                        <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td>{{ $order->address }}</td>
+                        </tr>
+                        <tr>
+                        <td>Dikirim pada tanggal</td>
+                        <td>:</td>
+                        <td>{{ $order->due_date }}</td>
+                        </tr>
+                        <tr>
+                        <td>No telp pembeli</td>
+                        <td>:</td>
+                        <td>{{ $order->phone_number }}</td>
+                        </tr>
+                        <tr>
+                        <td>Pesan untuk penjual:</td>
+                        <td>:</td>
+                        <td>{{ $order->note }}</td>
+                        </tr>
+                    </table>
                     <h5 class="fw-bold taartely-paragraph16 p-16 mt-2">Status: {{ $order->status }}</h5>
                     <table class="table">
                         <tbody>
@@ -61,7 +83,7 @@
                     <p class="card-title"><b>Total belanja</b>: Rp. {{ number_format($order->total_price) }}</p>
                     @can("buyer")
                         @if ($order->status=="accept")
-                        <a class="btn taartely-button p-14" href="/payment/{{ $order->id }}">Bayar sekarang</a>
+                        <a class="btn btn-success p-14" href="/payment/{{ $order->id }}">Bayar sekarang</a>
                         @endif  
                     @endcan
 
@@ -74,7 +96,7 @@
                                 <form action="{{ route("orders.updateFromPending", ["order" => $order->id]) }}" method="post">
                                     @csrf
                                     @method("put")
-                                    <button class="btn taartely-button p-14" type="submit">Terima pesanan</button>
+                                    <button class="btn btn-success p-14" type="submit">Terima pesanan</button>
                                 </form>
                             </div>
                             <div class="d-flex pt-2 col-lg-9">
@@ -82,7 +104,7 @@
                                 <form action="{{ route("orders.updateFromDonePaymentButCancel", ["order" => $order->id]) }}" method="post">
                                     @csrf
                                     @method("put")
-                                    <button class="btn taartely-button p-14" type="submit">Tolak pesanan</button>
+                                    <button class="btn btn-danger p-14" type="submit">Tolak pesanan</button>
                                 </form>
                             </div>
                         </div>
@@ -90,40 +112,49 @@
 
                         @if ($order->status=="done_payment")
                         <div class="row g-0">
-                            <div class="d-flex pt-2 col-lg-3">
+                            <div class="d-flex pt-2 col-lg-3" style="width: 160px">
 
                                 {{-- ! Update status to process * Destination URL: /updateFromDonePayment/{order} * Source URL: /seller/orders --}}
                                 <form action="{{ route("orders.updateFromDonePayment", ["order" => $order->id]) }}" method="post">
                                     @csrf
                                     @method("put")
-                                    <button class="btn taartely-button p-14" type="submit">Proses pesanan</button>
+                                    <button class="btn btn-success p-14" type="submit">Proses pesanan</button>
                                 </form>
-
                             </div>
-                            <div class="d-flex pt-2 col-lg-9">
+                            <div class="d-flex pt-2 col-lg-3" style="width: 150px">
 
                                 {{-- ! Update status to cancelled * Destination URL: /updateFromDonePaymentButCancel/{order} * Source URL: /seller/orders --}}
                                 <form action="{{ route("orders.updateFromDonePaymentButCancel", ["order" => $order->id]) }}" method="post">
                                     @csrf
                                     @method("put")
-                                    <button class="btn taartely-button p-14" type="submit">Tolak pesanan</button>
+                                    <button class="btn btn-danger p-14" type="submit">Tolak pesanan</button>
                                 </form>
-                                
+                            </div>
+                            <div class="d-flex pt-2 col-lg-3">
+                                <a class="btn btn-info text-light p-14" href="{{ asset("/storage/".$order->image) }}" target="__blank">Lihat bukti pembayaran</a>
                             </div>
                         </div>
                         @endif   
                         @if ($order->status=="process")
-                        {{-- ! Update status to completed * Destination URL: /updateFromProcess/{order} * Source URL: /seller/orders --}}
-                        <form action="{{ route("orders.updateFromProcess", ["order" => $order->id]) }}" method="post">
-                            @csrf
-                            @method("put")
-                            <button class="btn taartely-button p-14" type="submit">Pesanan Selesai</button>
-                        </form>
+                        <div class="row g-0">
+                            <div class="d-flex pt-2 col-lg-3" style="width: 160px">
+
+                                {{-- ! Update status to completed * Destination URL: /updateFromProcess/{order} * Source URL: /seller/orders --}}
+                                <form action="{{ route("orders.updateFromProcess", ["order" => $order->id]) }}" method="post">
+                                    @csrf
+                                    @method("put")
+                                    <button class="btn btn-success p-14" type="submit">Pesanan Selesai</button>
+                                </form>
+                            </div>
+                            <div class="d-flex pt-2 col-lg-3">
+                                <a class="btn btn-info text-light p-14" href="{{ asset("/storage/".$order->image) }}" target="__blank">Lihat bukti pembayaran</a>
+                            </div>
+                        </div>
                         @endif  
 
-                        @if($order->status=="done_payment" || $order->status=="process" || $order->status=="completed" || $order->status=="cancelled" )
+                        @if($order->status=="completed")
 
-                        <a href="{{ asset("/storage/".$order->image) }}" target="__blank">Lihat bukti pembayaran</a>
+                        <a class="btn btn-info text-light p-14" href="{{ asset("/storage/".$order->image) }}" target="__blank">Lihat bukti pembayaran</a>
 
                         @endif
                     @endcan

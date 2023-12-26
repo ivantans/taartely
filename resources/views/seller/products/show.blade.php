@@ -1,54 +1,54 @@
 @extends('layouts.main')
 
 @section("container")
-<section class="container-mx-12-rem py-5 text-center">
-    <a class="text-center pt-3" href="/seller/dashboard/products"><button class="btn taartely-button rounded">Kembali ke Semua Products</button></a>
-</section>
-<section class="container-mx-7-rem py-1 px-5 pb-5">
-    <table>
+<section class="container-mx-7-rem py-4">
+    <a href="/seller/dashboard/products" class="taartely-paragraph text-decoration-none"><i class="bi bi-arrow-left-short" style="font-size: 18px;"></i>Kembali</a>
+    <h1 class="text-center mb-4 taartely-color-2 fw-bold">Detail Produk</h1>
+    <div class="px-5">
+    <table class="mb-4">
         <td>
         <table>
             <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">id</td>
-            <td class="taartely-paragraph px-4">: {{ $product->id }}</td>
+            <td class="fw-bold taartely-paragraph mb-2" style="width: 100px">Id</td>
+            <td class="fw-bold taartely-paragraph mt-5 mb-0" style="width: 10px">:</td>
+            <td class="taartely-paragraph px-4 py-1">{{ $product->id }}</td>
             </tr>
             <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">nama</td>
-            <td class="taartely-paragraph px-4">: {{ $product->name }}</td>
+            <td class="fw-bold taartely-paragraph">Nama</td>
+            <td class="fw-bold taartely-paragraph">:</td>
+            <td class="taartely-paragraph px-4 py-1">{{ $product->name }}</td>
             </tr>
             <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">category</td>
-            <td class="taartely-paragraph px-4">: {{ $product->category->name }}</td>
+            <td class="fw-bold taartely-paragraph">Category</td>
+            <td class="fw-bold taartely-paragraph">:</td>
+            <td class="taartely-paragraph px-4 py-1">{{ $product->category->name }}</td>
             </tr>
             <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">pembuat</td>
-            <td class="taartely-paragraph px-4">: {{ $product->user->name }}</td>
+            <td class="fw-bold taartely-paragraph">Slogan</td>
+            <td class="fw-bold taartely-paragraph">:</td>
+            <td class="taartely-paragraph px-4 py-1">{{ $product->excerpt }}</td>
             </tr>
             <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">slug</td>
-            <td class="taartely-paragraph px-4">: {{ $product->slug }}</td>
+            <td class="fw-bold taartely-paragraph">Deskripsi</td>
+            <td class="fw-bold taartely-paragraph">:</td>
+            <td class="taartely-paragraph px-4 py-1">{!! $product->description !!}</td>
             </tr>
             <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">slogan</td>
-            <td class="taartely-paragraph px-4">: {{ $product->excerpt }}</td>
+            <td class="fw-bold taartely-paragraph">Harga</td>
+            <td class="fw-bold taartely-paragraph">:</td>
+            <td class="taartely-paragraph px-4 py-1">{{ $product->price }}</td>
             </tr>
             <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">deskripsi</td>
-            <td class="taartely-paragraph px-4">: {!! $product->description !!}</td>
-            </tr>
-            <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">harga</td>
-            <td class="taartely-paragraph px-4">: {{ $product->price }}</td>
-            </tr>
-            <tr>
-            <td class="fw-bold taartely-paragraph mt-5 mb-0">dibuat</td>
-            <td class="taartely-paragraph px-4">: {{ $product->created_at->diffForHumans() }}</td>
+            <td class="fw-bold taartely-paragraph mt-5 mb-0">Dibuat</td>
+            <td class="fw-bold taartely-paragraph mt-5 mb-0">:</td>
+            <td class="taartely-paragraph px-4 py-1">{{ $product->created_at->diffForHumans() }}</td>
             </tr>
         </table>
         </td>
         <td>
-            <td><img src="{{ asset("storage/".$product->image) }}" style="heigt:250px; width: 250px" alt=""></td>
+            <td><img src="{{ asset("storage/".$product->image) }}" style="heigt:250px; width: 300px" alt=""></td>
         </td>
     </table>
+    </div>
 </section>
 @endsection
