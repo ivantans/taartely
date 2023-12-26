@@ -10,6 +10,9 @@ use App\Http\Controllers\SellerCategoryController;
 use App\Http\Controllers\SellerDashboardController;
 use App\Http\Controllers\SellerOrderController;
 use App\Http\Controllers\SellerProductController;
+use App\Jobs\SendEmailNotificationJob;
+use App\Mail\SendEmailNotification;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 /*

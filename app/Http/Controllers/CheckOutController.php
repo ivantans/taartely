@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailJob;
+use App\Jobs\SendEmailNotificationJob;
+use App\Mail\SendEmailNotification;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CheckOutController extends Controller
@@ -61,6 +65,12 @@ class CheckOutController extends Controller
             $orderDetail->save();
         }
         $cartItems->each->delete();
+
+ 
+        $order = Order::where("user_id", auth()->user()->id)->latest()->first();
+
+        // dispatch(new SendEmailNotificationJob($order));
+        SendEmailJob::dispatch('seller', $order);
         return redirect('/orders')->with('success', 'New orders has been added!');
     }
     public function payment(Request $request, Order $order){
