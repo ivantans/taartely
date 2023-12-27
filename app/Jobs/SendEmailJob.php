@@ -31,7 +31,7 @@ class SendEmailJob implements ShouldQueue
 
         switch ($this->emailTpye) {
             case 'SendNewOrder':
-                Mail::to("ivantanjaya77@gmail.com")->send(new SellerNewOrder($this->model));
+                Mail::to("widiadewi428@gmail.com")->send(new SellerNewOrder($this->model));
                 break;
 
             case 'SendDonePayment':

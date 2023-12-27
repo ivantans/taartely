@@ -1,8 +1,11 @@
 @extends("layouts.main")
 
 @section('container')
-@if(session()->has("success"))
-<p>{{ session("success") }}</p>
+@if (session()->has("success"))
+<div class="alert alert-success alert-dismissible fade show bottom-0 end-0 position-fixed" style="z-index:999" role="alert">
+    <strong>{{ session("success") }}</strong> Data berhasil diperbarui
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 @endif
 
 <section class="container-mx-7-rem py-4">
