@@ -1,56 +1,3 @@
-
-{{-- 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-    
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-    
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-    <div style="background-color: #F5F5F4">
-        <h1 class="container-mx-7-rem">Taartely</h1>
-        <div class="container-mx-7-rem bg-white" style="height: 100vh">
-            <div class="container-mx-7-rem mx-5 pt-3">
-                <h4>Hi <b>Taartely</b></h4>
-                
-                <h5 class="pt-5"><b>Rincian pesanan</b></h5>
-                
-
-                <h6>Order ini sedang menunggu ketersediaan dari penjual, jangan lewatkan kesempatan untuk menerima pesanan ini dalam kurang dari 1 hari! Pastikan untuk segera menerimanya sehingga pembeli dapat segera melanjutkan dengan pembayaran!</h6>
-                <div class="text-center mt-5">
-                <a href="/seller/orders" class="text-decoration-none taartely-button">Pergi ke orders</a>
-            </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
- --}}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,10 +55,6 @@
             cursor: pointer;
             text-decoration: none;
         }
-        
-        .taartely-button{
-            
-        }   
     </style>
 </head>
 <body>
@@ -127,10 +70,15 @@
                     <th>Id Pesanan</th>
                     <td>{{ $order->id }}</td>
                 </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>Sudah dibayar | perlu di proses </td>
+                </tr>
             
                 <tr>
                     <th>Waktu Transaksi</th>
-                    <td>{{ $order->created_at }}</td>
+                    <td>{{ $order->updated_at }}</td>
                 </tr>
             
                 <tr>
@@ -153,10 +101,10 @@
                 </tr>
             </table>
 
-            <h5>Order ini sedang menunggu ketersediaan dari penjual, jangan lewatkan kesempatan untuk menerima pesanan ini dalam kurang dari 1 hari! Pastikan untuk segera menerimanya sehingga pembeli dapat segera melanjutkan dengan pembayaran!</h5>
+            <h5>Pesanan ini sudah dibayar oleh pembeli dan siap untuk di proses, silahkan lakukan proses pesanan dengan mengklik tombol dibawah</h5>
             
             <div class="text-center mt-5">
-                <a style="color:white" href="http://127.0.0.1:8000/seller/orders">Pergi ke orders</a>
+                <a style="color:white" href="http://127.0.0.1:8000/seller/orders?status=done_payment">Pergi ke orders</a>
             </div>
         </div>
     </div>

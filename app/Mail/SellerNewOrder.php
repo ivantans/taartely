@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendEmailNotification extends Mailable
+class SellerNewOrder extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,7 +28,7 @@ class SendEmailNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-        subject: 'Product Kamu Dibeli! Pesanan #'.$this->order->id,
+            subject: 'Pesanan Sudah Dibayar! Pesanan #'.$this->order->id,
         );
     }
 
@@ -38,7 +38,7 @@ class SendEmailNotification extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.template',
+            view: 'mail.seller.neworder',
             with: [
                 "order" => $this->order
             ]

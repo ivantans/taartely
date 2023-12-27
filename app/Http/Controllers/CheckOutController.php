@@ -68,9 +68,7 @@ class CheckOutController extends Controller
 
  
         $order = Order::where("user_id", auth()->user()->id)->latest()->first();
-
-        // dispatch(new SendEmailNotificationJob($order));
-        SendEmailJob::dispatch('seller', $order);
+        SendEmailJob::dispatch('SendNewOrder', $order);
         return redirect('/orders')->with('success', 'New orders has been added!');
     }
     public function payment(Request $request, Order $order){
@@ -83,6 +81,8 @@ class CheckOutController extends Controller
         $validatedData["status"] = "done_payment";
         Order::where("id", $order->id)
                 ->update($validatedData);
+        $order = Order::find($order->id);
+        SendEmailJob::dispatch('SendDonePayment', $order);
         return redirect('/orders')->with('success', 'Bukti bayar sudah diupload');
     }
 }

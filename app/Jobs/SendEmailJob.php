@@ -2,8 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Mail\SendEmailNotification;
-use App\Models\Order;
+use App\Mail\SellerDonePayment;
+use App\Mail\SellerNewOrder;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,14 +30,13 @@ class SendEmailJob implements ShouldQueue
     {
 
         switch ($this->emailTpye) {
-            case 'seller':
-                Mail::to("ivantanjaya77@gmail.com")->send(new SendEmailNotification($this->model));
+            case 'SendNewOrder':
+                Mail::to("ivantanjaya77@gmail.com")->send(new SellerNewOrder($this->model));
                 break;
 
-            // case 'buyer':
-            //     Logika pengiriman email untuk pembeli
-            //     Mail::to($this->data['buyerEmail'])->send();
-            //     break;
+            case 'SendDonePayment':
+                Mail::to("ivantanjaya77@gmail.com")->send(new SellerDonePayment($this->model));
+                break;
 
 
             // ... tambahkan jenis email lainnya sesuai kebutuhan
