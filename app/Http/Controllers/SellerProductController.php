@@ -54,7 +54,7 @@ class SellerProductController extends Controller
         $validatedData["image"] = $request->file("image")->store("product-images");
 
         Product::create($validatedData);
-        return redirect('/seller/dashboard/products')->with('success', 'New Product has been added!');
+        return redirect('/seller/dashboard/products')->with('success', 'Produk baru berhasil ditambahkan!');
     }
 
     /**
@@ -115,7 +115,7 @@ class SellerProductController extends Controller
         Product::where('id', $product->id)
             ->update($validatedData);
 
-            return redirect('/seller/dashboard/products')->with('success', 'New products has been updated!');
+            return redirect('/seller/dashboard/products')->with('success', 'Produk berhasil diperbarui');
         
     }
 
@@ -139,7 +139,7 @@ class SellerProductController extends Controller
         $product = Product::where("id", $product->id)
                     ->update(["status" => 0]);
 
-        return redirect('/seller/dashboard/products')->with('success', 'Product has been deleted!');
+        return redirect('/seller/dashboard/products')->with('success', 'Produk berhasil dihapus!');
     }
 
     public function checkSlug(Request $request){

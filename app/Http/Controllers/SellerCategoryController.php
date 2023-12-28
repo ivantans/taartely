@@ -44,7 +44,7 @@ class SellerCategoryController extends Controller
 
         Category::create($validatedData);
 
-        return redirect('/seller/dashboard/categories')->with('success', 'New category has been added!');
+        return redirect('/seller/dashboard/categories')->with('success', 'Kategori baru berhasil ditambahkan!');
     }
 
     /**
@@ -86,7 +86,7 @@ class SellerCategoryController extends Controller
         Category::where('id', $category->id)
             ->update($validatedData);
 
-        return redirect('/seller/dashboard/categories')->with('success', 'category has been updated!');
+        return redirect('/seller/dashboard/categories')->with('success', 'Kategori berhasil diperbarui!');
 
 
     }

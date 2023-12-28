@@ -13,11 +13,11 @@
         <h1 class="taartely-color-1 p-40 pt-2 pb-2">Rp{{ number_format($product->price, 0, ",",".") }}</h1>
         <div class="row justify-content-start mt-4">
             <div class="col-md-2 mt-4">
-                <small class="taartely-paragraph fw-light"> Pengiriman</small>
-                <small class="taartely-paragraph fw-light d-block my-4"> Amount</small>
+                <small class="taartely-paragraph fw-light">Pengiriman </small>
+                <small class="taartely-paragraph fw-light d-block my-4">Amount</small>
             </div>
-            <div class="col-md-10 mt-4">
-                <p class="text-success"><i class="bi bi-truck"></i> Gratis ongkir</p>
+            <div class="col-md-10 mt-4 px-3">
+                <p class="text-success"><i class="bi bi-truck px-2"></i>Gratis ongkir</p>
                 
                 {{-- ! Store new carts * Destination URL: /carts * Source URL: /products/{product} --}}
                 <form action="{{ route("carts.store") }}" method="post">

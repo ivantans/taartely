@@ -69,7 +69,7 @@ class CheckOutController extends Controller
  
         $order = Order::where("user_id", auth()->user()->id)->latest()->first();
         SendEmailJob::dispatch('SendNewOrder', $order);
-        return redirect('/orders')->with('success', 'New orders has been added!');
+        return redirect('/orders')->with('success', 'Pesanan baru berhasil ditambahkan!');
     }
     public function payment(Request $request, Order $order){
         $this->authorize("buyer");

@@ -44,7 +44,7 @@ class CartController extends Controller
         $validatedData["user_id"] = auth()->user()->id;
         $validatedData["product_id"] = $request->product_id;
         Cart::create($validatedData);
-        return redirect("/products")->with("success", "Added to cart");
+        return redirect("/products")->with("success", "Berhasil menambahkan produk ke Keranjang");
     }
 
     /**
@@ -81,7 +81,7 @@ class CartController extends Controller
         Cart::where("id", $request->cart_id)
         ->update($validatedData);
 
-        return redirect("/carts")->with("success", "Amount has been updated!");
+        return redirect("/carts")->with("success", "Jumlah berhasil diperbarui!");
     }
 
     /**
@@ -91,6 +91,6 @@ class CartController extends Controller
     {
         $this->authorize("buyer");
         Cart::destroy($cart->id);
-        return redirect("/carts")->with("success", "Amount has been deleted!");
+        return redirect("/carts")->with("success", "Data berhasil dihapus!");
     }
 }
