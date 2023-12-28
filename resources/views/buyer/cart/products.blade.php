@@ -5,13 +5,7 @@
 
 <div class="container-mx-7-rem py-4">
     <h1 class="taartely-color-2 mb-3 fw-bold pb-2">Keranjang Saya</h1>
-    {{-- * Section nama penerima dan alamat user --}}
-    <div class="card w-100 mb-3">
-        <div class="card-body">
-            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Daftar Pesanan:</h5>
-        </div>
-    {{-- * End section nama penerima dan alamt user --}}
-    </div>
+    <h5 class="fw-bold p-16 taartely-paragraph16 mt-2 pb-3">Daftar Pesanan:</h5>
 
 
     {{-- * Cart detail product --}}
@@ -81,13 +75,13 @@
                 <label for="address" class="form-label taartely-paragraph">Alamat Pengiriman:</label>
                 <input type="text" class="form-control taartely-paragraph" name="address" value="{{ old("address", auth()->user()->address)}}">
 
-                <label for="phone_number" class="form-label taartely-paragraph">Nomor Telepon:</label>
+                <label for="phone_number" class="form-label taartely-paragraph pt-2">Nomor Telepon:</label>
                 <input type="text" class="form-control taartely-paragraph" name="phone_number" value="{{ old("phone_number", auth()->user()->phone_number)}}" placeholder="notelp">
 
-                <label for="note" class="form-label taartely-paragraph">Catatan:</label>
+                <label for="note" class="form-label taartely-paragraph pt-2">Catatan:</label>
                 <input type="text" class="form-control taartely-paragraph" name="note" value="{{ old("note")}}" placeholder="catatan untuk penjual">
 
-                <label for="due_date" class="form-label taartely-paragraph">Tanggal Pengiriman:</label>
+                <label for="due_date" class="form-label taartely-paragraph pt-2">Tanggal Pengiriman:</label>
                 <input type="date" class="form-control taartely-paragraph" name="due_date" value="{{ old("due_date") }}">
 
                 @error("due_date")
