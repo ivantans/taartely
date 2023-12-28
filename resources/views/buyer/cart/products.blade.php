@@ -8,9 +8,7 @@
     {{-- * Section nama penerima dan alamat user --}}
     <div class="card w-100 mb-3">
         <div class="card-body">
-            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Kirim ke alamat:</h5>
-            <p class="taartely-paragraph">{{ auth()->user()->name }}</p>
-            <p class="taartely-paragraph">{{ auth()->user()->address }}</p>
+            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Daftar Pesanan:</h5>
         </div>
     {{-- * End section nama penerima dan alamt user --}}
     </div>
@@ -52,15 +50,15 @@
                             </div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary" style="font-size:14px">Simpan</button>
+                        <button type="submit" class="btn btn-primary p-14">Simpan</button>
                     </form>
 
                     {{-- ! Hapus Keranjang * Destination URL: /carts * Source URL: /carts --}}
                     <form action="{{ route('carts.destroy', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                         @csrf
                         @method("delete")
-                        <button type="submit" style="font-size:14px" onclick="return confirm('Are you sure?')"
-                            class="btn btn-danger">Hapus</button>
+                        <button type="submit" onclick="return confirm('Are you sure?')"
+                            class="btn btn-danger p-14">Hapus</button>
                     </form>
                     
                 </div>
@@ -69,14 +67,6 @@
     </div>
     {{-- * End cart detail product --}}
     @endforeach
-
-
-    <div class="card w-100 mb-3">
-        <div class="card-body">
-            <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Rincian belanja:</h5>
-            <p class="taartely-paragraph">Total belanja ({{ $total_product }} Product): <b>Rp. {{ $total_price }}</b></p>
-        </div>
-    </div>
 
     {{-- * Section pembayaran --}}
     <div class="card w-100 mb-3">
@@ -91,7 +81,7 @@
                 <label for="address" class="form-label taartely-paragraph">Alamat Pengiriman:</label>
                 <input type="text" class="form-control taartely-paragraph" name="address" value="{{ old("address", auth()->user()->address)}}">
 
-                <label for="phone_number" class="form-label taartely-paragraph">Nomor Telephon:</label>
+                <label for="phone_number" class="form-label taartely-paragraph">Nomor Telepon:</label>
                 <input type="text" class="form-control taartely-paragraph" name="phone_number" value="{{ old("phone_number", auth()->user()->phone_number)}}" placeholder="notelp">
 
                 <label for="note" class="form-label taartely-paragraph">Catatan:</label>
@@ -104,7 +94,7 @@
                 <p>{{ $message }}</p>
                 @enderror
                 <p class="fw-bold p-16 taartely-paragraph16 mt-2">Total belanja ({{ $total_product }} Product): <b>Rp. {{ number_format($total_price, "0", ".", ".") }}</b></p>
-                <button class="btn btn-success">Buat Pesanan</button>
+                <button class="btn btn-success p-14">Buat Pesanan</button>
             </form>
 
         </div>

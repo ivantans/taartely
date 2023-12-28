@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="row container-mx-7-rem justify-content-between pt-2 pb-2">
+<div class="row container-mx-7-rem justify-content-between pt-3">
     <div class="col-md-8 p-3">
         <div class="col text-decoration-none d-flex pb-1">
             <div class="bg-section rounded h-100 px-5">
