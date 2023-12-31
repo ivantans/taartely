@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\SendEmailJob;
-use App\Jobs\SendEmailNotificationJob;
-use App\Mail\SendEmailNotification;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -82,7 +80,7 @@ class CheckOutController extends Controller
         Order::where("id", $order->id)
                 ->update($validatedData);
         $order = Order::find($order->id);
-        SendEmailJob::dispatch('SendDonePayment', $order);
+        SendEmailJob::dispatch('SendDonePayment', $order); //Send to Seller And Buyer
         return redirect('/orders')->with('success', 'Bukti bayar sudah diupload');
     }
 }

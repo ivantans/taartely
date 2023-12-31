@@ -42,7 +42,7 @@
             <div class="card-body">
                 <h5 class="fw-bold p-16 taartely-paragraph16 mt-2">Pembayaran:</h5>
                 {{-- * Menampilkan gambar QRIS --}}
-                <img class="img-fluid my-4 border" src="{{ asset("storage\qris-images\qris.png") }}" alt="" style="width: 400px;height: 500px">
+                <img class="img-fluid my-4 border" src="{{ asset("storage\qris-images\qris.jpg") }}" alt="" style="width: 400px;height: 500px">
 
                 {{-- ! Update Bukti Payment * Destination URL: /payment/{order} * Source URL: /payment{order} --}}
                 <form action="{{ route("payment.payment", ["order" => $order->id]) }}" method="post" enctype="multipart/form-data">

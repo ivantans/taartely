@@ -28,7 +28,7 @@ class SellerNewOrder extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Pesanan Sudah Dibayar! Pesanan #'.$this->order->id,
+            subject: 'Product Kamu Dibeli! Pesanan #'.$this->order->id,
         );
     }
 

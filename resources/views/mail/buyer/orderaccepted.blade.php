@@ -62,7 +62,7 @@
     <div class="container">
         <h1>Taartely</h1>
         <div>
-            <h4>Hi <b>Taartely</b></h4>
+            <h4>Hi <b>{{ $order->user->name }}</b></h4>
             
             <h5 class="pt-5"><b>Rincian pesanan</b></h5>
             <table>
@@ -73,7 +73,7 @@
 
                 <tr>
                     <th>Status</th>
-                    <td>Sudah dibayar | perlu di proses </td>
+                    <td>Diterima oleh penjual | perlu di bayar sebelum {{ Carbon\Carbon::parse($order->created_at)->addHours(12) }} </td>
                 </tr>
             
                 <tr>
@@ -101,10 +101,10 @@
                 </tr>
             </table>
 
-            <h5>Pesanan ini sudah dibayar oleh pembeli dan siap untuk di proses, silahkan lakukan proses pesanan dengan mengklik tombol dibawah</h5>
+            <h5>Pesanan ini belum dibayar, silahkan lakukan proses pembayaran dan mengupload bukti pembayaran</h5>
             
             <div class="text-center mt-5">
-                <a style="color:white" target= "_blank" href="http://127.0.0.1:8000/storage/{{ $order->image }}">Lihat bukti bayar</a>
+                <a style="color:white" href="http://127.0.0.1:8000/orders?status=accept">Pergi ke orders</a>
             </div>
         </div>
     </div>

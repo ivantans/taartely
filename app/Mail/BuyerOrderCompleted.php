@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SellerDonePayment extends Mailable
+class BuyerOrderCompleted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,7 +28,7 @@ class SellerDonePayment extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Product Suday dibayar! Pesanan #'.$this->order->id,
+            subject: 'Pesanan telah selesai #'.$this->order->id,
         );
     }
 
@@ -38,7 +38,7 @@ class SellerDonePayment extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.seller.donepayment',
+            view: 'mail.buyer.ordercompleted',
             with: [
                 "order" => $this->order
             ]

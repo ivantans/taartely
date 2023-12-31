@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailJob;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -38,6 +39,8 @@ class SellerOrderController extends Controller
 
         Order::where("id", $order->id)
             ->update($data);
+        $order = Order::find($order->id);
+        SendEmailJob::dispatch("SendOrderAccepted", $order);
 
         return redirect("/seller/orders")->with("success", "berhasil di terima");
     }
@@ -49,6 +52,9 @@ class SellerOrderController extends Controller
         Order::where("id", $order->id)
             ->update($data);
         
+        $order = Order::find($order->id);
+        SendEmailJob::dispatch("SendProcessOrder", $order);
+
         return redirect("/seller/orders")->with("success", "berhasil di process");
     }
     public function updateFromDonePaymentButCancel(Order $order){
@@ -57,6 +63,9 @@ class SellerOrderController extends Controller
 
         Order::where("id", $order->id)
             ->update($data);
+
+        $order = Order::find($order->id);
+        SendEmailJob::dispatch("SendOrderCancelled", $order);
 
         return redirect("/seller/orders")->with("success", "berhasil di cancel");
     }
@@ -67,6 +76,8 @@ class SellerOrderController extends Controller
         Order::where("id", $order->id)
             ->update($data);
 
+        $order = Order::find($order->id);
+        SendEmailJob::dispatch("SendOrderCompleted", $order);
         return redirect("/seller/orders")->with("success", "berhasil di update");
     }
 }
