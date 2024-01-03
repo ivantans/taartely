@@ -54,13 +54,7 @@ class SendEmailJob implements ShouldQueue
                 case 'SendOrderCancelled':    
                 Mail::to($this->model->user->email)->send(new BuyerOrderCancelled($this->model));
                 break;
-
-
-
-            // ... tambahkan jenis email lainnya sesuai kebutuhan
-
             default:
-                // Logika default jika tipe email tidak dikenali
                 break;
         }
     }
